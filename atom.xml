@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[vrybas]]></title>
+  <link href="http://vrybas.github.io/atom.xml" rel="self"/>
+  <link href="http://vrybas.github.io/"/>
+  <updated>2014-03-24T23:15:02+07:00</updated>
+  <id>http://vrybas.github.io/</id>
+  <author>
+    <name><![CDATA[Vladimir Rybas]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How Do I Pomodoro]]></title>
+    <link href="http://vrybas.github.io/blog/2014/03/24/how-do-i-pomodoro/"/>
+    <updated>2014-03-24T07:38:21+07:00</updated>
+    <id>http://vrybas.github.io/blog/2014/03/24/how-do-i-pomodoro</id>
+    <content type="html"><![CDATA[<p>I&rsquo;m a big fan of <strong>Pomodoro</strong> time management technique, created by
+Francesco
+Cirillo in the 80&rsquo;s. In this post I&rsquo;ll describe what it is, how I use it
+(tools and their tweaks), and how it helps me to get through my day.</p>
+
+<!-- more -->
+
+
+<h2>Interruptions</h2>
+
+<p>Interruptions are horrible. They are your productivity&rsquo;s worst enemy.
+Jason Fried gave excellent <a href="http://www.ted.com/talks/jason_fried_why_work_doesn_t_happen_at_work.html">talk</a> on that. In fact, the most important
+measurement of quality of your working environment (and working style) is how
+much uninterrupted time you can have per day.</p>
+
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/5XD2kNopsUs "></iframe></div>
+
+
+<p>There are external interruptions. A dozen of devices ring one after another.
+Notifications pop up on the screen. People come talk to us.  It&rsquo;s hard to get
+away even for 10 minutes.</p>
+
+<p>And there&rsquo;s also interruptions of our own. We become &ldquo;tired&rdquo; and &ldquo;feel like
+we deserve a break&rdquo;. We open up twitter and who knows if we come back
+for next 30 minutes. Or some idea just hits us in the middle of the working
+day, and we can&rsquo;t help but think it over and over again, while, at the same
+time, trying to stay focused on current task.</p>
+
+<p>The thing is, we can&rsquo;t just shut off all notifications and don&rsquo;t talk to
+anybody. At least not for a long time. We are team workers, and have to
+interact. And we can&rsquo;t work without breaks all day long, but we want to
+control them, so a little trip to Facebook don&rsquo;t become a time-wasting
+disaster. We don&rsquo;t want our brilliant ideas to get lost, but we want to work
+on them on priority.</p>
+
+<h2>Pomodoro is here to help</h2>
+
+<p>So there&rsquo;s a Pomodoro Technique (<a href="http://www.pomodorotechnique.com/download/pdf/ThePomodoroTechnique_v1-3.pdf">pdf</a>). In short, it offers you to work
+for a fixed amount of time, and then have a fixed short break.</p>
+
+<p>You set a timer to 25 minutes(canonical), and, during that time, you shut off
+all your notifications. Nothing and no one can interrupt you, even your
+lazy-self. You&rsquo;re don&rsquo;t let yourself to think of any extraneous thoughts. If
+something pops up to your mind, you write it down somewhere (if it&rsquo;s worth it)
+to come back to it later.</p>
+
+<p>After timer rings, you immediately stop what you&rsquo;re doing, checking your email
+and other messages, you go get that co-worker who had a question. And, more
+importantly, you&rsquo;re having a scheduled break for 5 minutes or so. It&rsquo;s a good
+time to stand up, walk outside, get some water and fresh air, <a href="http://infographicsmania.com/wp-content/uploads/2012/09/Bathroom-Break-Yoga-infographic.jpg">limber up</a>,
+give your brain, eyes and whole body some rest.</p>
+
+<p><a href="http://infographicsmania.com/wp-content/uploads/2012/09/Bathroom-Break-Yoga-infographic.jpg"><img src="http://f.cl.ly/items/0h1M0D2T3T2n1W1e0h2A/Screen%20Shot%202014-03-24%20at%2011.01.21%20PM.png" alt="" /></a></p>
+
+<p>This is just the right balance between work and rest. It gives ability
+to be interrupted and communicate only when you&rsquo;re available and when you don&rsquo;t mind.
+It also makes you more self-disciplined in general, as well as it&rsquo;s a good will-power
+exercise.</p>
+
+<h2>But how &lsquo;bout my Flow?</h2>
+
+<p>Yes, <a href="http://en.wikipedia.org/wiki/Flow_(psychology)">Flow</a>. The thing with Flow is hard to get in and so easy to get
+out. Some of Pomodoro newbies complain that this forced break is a
+Flow-killer. But I don&rsquo;t think it is. Well, Pomodoro helps you to get into the
+Flow at the first place. And, again, you don&rsquo;t want to get lost for several
+hours for the team, draining all of your brain &amp; body power, leaving yourself
+completely exhausted. Pomodoro helps to stay productive all day
+(days/weeks/months), not just a few Flow hours.</p>
+
+<p>Yes, it is hard to go for a break when you&rsquo;re in a middle of something. But it
+teaches you to respect your time and &ldquo;protect Pomodoro at all cost&rdquo;, so you
+can do more. Also, when it&rsquo;s couple of minutes left on the timer, you should
+start writing down what you&rsquo;re doing now, and what you&rsquo;re going to do next
+(which is a good thing to do anyway). So, for me, that&rsquo;s never been a problem
+to get back to the same point after a break.</p>
+
+<p>But every workflow is different, and every mind is different. For example in
+ability to stay focused on a task for a long period of time. So, I can suggest
+to just try it out for a few days and see if it works for you.</p>
+
+<h2>Start it slow</h2>
+
+<p>A quick tip for Pomodoro beginners &ndash; start it slow. Maybe you would want
+to start with 10 minutes of high quality Pomodoro. Or even 5 minutes. And
+increase length over time. Because successful short Pomodoros are better than
+few <a href="https://twitter.com/kubem/status/350390764515233792">#procastodoros</a>.</p>
+
+<p><a href="https://twitter.com/kubem/status/350390764515233792"><img src="http://f.cl.ly/items/2L2Z2j2s243l3G1W0A2v/Screen%20Shot%202014-03-24%20at%2010.54.38%20PM.png" alt="" /></a></p>
+
+<h2>There&rsquo;s an app for that</h2>
+
+<p>In fact, that can be enough to use a kitchen timer (the one they&rsquo;re
+<a href="http://pomodorotechnique.com/timer/">offering</a> on the site) with just pen &amp; paper. I know a bunch of developers
+who use pen &amp; notebooks as a primary GTD tool and it works for them. And if it
+works for you &ndash; that&rsquo;s fine. But there sure some apps. I&rsquo;ll describe my
+favorites. Each one works best in certain circumstances.</p>
+
+<h4><a href="http://tomato.es/">Tomato.es (Web)</a></h4>
+
+<p>The best way to try Pomodoro out. You don&rsquo;t have to install anything. Just
+open new tab with this application, sign in with Github or Twitter
+(optionally), hit Space bar and see the timer going. It&rsquo;ll ring when Pomodoro
+is over and send Chrome&rsquo;s desktop notification. And there&rsquo;s a nice daily,
+weekly, monthly stats and even Leaderboards.  After all, it&rsquo;s
+<a href="https://github.com/potomak/tomatoes">opensource</a>, so you can suggest (or
+better develop) some new features.</p>
+
+<h4><a href="http://teamodoro.com/">Teamodoro.com (Web)</a></h4>
+
+<p>This one is for team synchronization. You can&rsquo;t stop and start Pomodoros,
+they&rsquo;re just starting automatically and counter is the same for everybody. And
+nice and simple fullscreen view to put on external monitor/device.</p>
+
+<h4><a href="https://itunes.apple.com/us/app/wind-up-timer/id325610693?mt=8">Wind-up Timer (iOS)</a></h4>
+
+<p>Swipe to set a timer to desired time. It ticks in the background. It rings in
+the end. Nice design. It is always in your pocket or desk. Well, mostly. I was
+happy with it at first. But there&rsquo;s no way to disable iOS notifications and
+keep the screen unlocked. So you basically set a timer and enable airplane
+mode or lock the screen. Still useful sometimes.</p>
+
+<h4><a href="https://github.com/ugol/pomodoro">Pomodoro.app (OSX)</a></h4>
+
+<p><img src="http://f.cl.ly/items/2w34273X191m1W1r1B2i/Screenshot_6_30_13_9_15_PM-2.png" alt="" /></p>
+
+<p>The most advanced OSX Pomodoro I&rsquo;ve seen. You can configure everything.
+Pomodoro length, break length, automatic restarts, sounds, Growl
+notifications, Twitter integration, Calendar intergration and, finally,
+execute applescripts on Pomodoro start/end/reset/interrupt/resume. And this
+opens endless possibilities, like disabling all possible notifications on your
+Mac &amp; Devices when Pomodoro starts, and automatically re-enable them when
+Pomodoro ends. And, for instance, send message to Campfire. Check out my
+set of <a href="https://github.com/vrybas/pomodoro-scripts">pomodoro-scripts</a>.</p>
+
+<p>The app is <a href="https://github.com/ugol/pomodoro">opensource</a>, you can compile it with XCode. Or download
+precompiled version <a href="http://cl.ly/3Q3H333y2132">here</a>.</p>
+
+<h4><a href="https://itunes.apple.com/us/app/breaktime/id427475982?mt=12">BreakTime (OSX)</a></h4>
+
+<p>This is not exactly a Pomodoro. It&rsquo;s just locks your screen after specified
+amount of time, so you are forced to take a break. Sometimes I use it
+standalone, or accompanied with other tools. Can execute applescripts.</p>
+
+<h4><a href="http://thymerb.com/">Thyme (console)</a></h4>
+
+<p>And, finally, the terminal solution. Which have nice progressbar, Tmux
+integration, and can also execute applescripts (via <a href="https://github.com/vrybas/dotfiles/blob/4b0f29c0dd688f8bb78eec5d66f6c657a4bf9bb1/thyme/thymerc.symlink#L4">osascript</a>) or any
+other terminal commands.</p>
+
+<p>That&rsquo;s it. Be productive, respect your time, and happy Pomodoring!</p>
+
+<h6>References:</h6>
+
+<ul>
+<li><a href="http://www.ted.com/talks/jason_fried_why_work_doesn_t_happen_at_work.html">Jason Fried &ndash; Why work doesn&rsquo;t happen at work</a></li>
+<li><a href="http://www.pomodorotechnique.com/download/pdf/ThePomodoroTechnique_v1-3.pdf">The Pomodoro Technique by Francesco Cirillo</a></li>
+<li><a href="http://infographicsmania.com/wp-content/uploads/2012/09/Bathroom-Break-Yoga-infographic.jpg">Bathroom Break Yoga &ndash; infographic</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Flow_(psychology)">Flow &ndash; Wikipedia</a></li>
+<li><a href="http://pomodorotechnique.com/timer/">The Pomodoro Technique official timer</a></li>
+<li><a href="http://tomato.es/">Tomato.es</a></li>
+<li><a href="http://teamodoro.com/">Teamodoro.com</a></li>
+<li><a href="https://itunes.apple.com/us/app/wind-up-timer/id325610693?mt=8">Wind-up Timer</a></li>
+<li><a href="https://github.com/ugol/pomodoro">Pomodoro.app</a></li>
+<li><a href="https://github.com/vrybas/pomodoro-scripts">Pomodoro Scripts</a></li>
+<li><a href="https://itunes.apple.com/us/app/breaktime/id427475982?mt=12">BreakTime</a></li>
+<li><a href="http://thymerb.com/">Thyme</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
