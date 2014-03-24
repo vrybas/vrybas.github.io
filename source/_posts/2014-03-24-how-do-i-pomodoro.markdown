@@ -20,6 +20,8 @@ Jason Fried gave excellent [talk][1] on that. In fact, the most important
 measurement of quality of your working environment (and working style) is how
 much uninterrupted time you can have per day.
 
+{% youtube 5XD2kNopsUs %}
+
 There are external interruptions. A dozen of devices ring one after another.
 Notifications pop up on the screen. People come talk to us.  It's hard to get
 away even for 10 minutes.
@@ -54,6 +56,8 @@ importantly, you're having a scheduled break for 5 minutes or so. It's a good
 time to stand up, walk outside, get some water and fresh air, [limber up][3],
 give your brain, eyes and whole body some rest.
 
+[![](http://f.cl.ly/items/0h1M0D2T3T2n1W1e0h2A/Screen%20Shot%202014-03-24%20at%2011.01.21%20PM.png)][3]
+
 This is just the right balance between work and rest. It gives ability
 to be interrupted and communicate only when you're available and when you don't mind.
 It also makes you more self-disciplined in general, as well as it's a good will-power
@@ -85,7 +89,9 @@ to just try it out for a few days and see if it works for you.
 A quick tip for Pomodoro beginners - start it slow. Maybe you would want
 to start with 10 minutes of high quality Pomodoro. Or even 5 minutes. And
 increase length over time. Because successful short Pomodoros are better than
-few [#procastodoros](https://twitter.com/kubem/status/350390764515233792).
+few [#procastodoros][16].
+
+[![](http://f.cl.ly/items/2L2Z2j2s243l3G1W0A2v/Screen%20Shot%202014-03-24%20at%2010.54.38%20PM.png)][16]
 
 ## There's an app for that
 
@@ -120,7 +126,8 @@ keep the screen unlocked. So you basically set a timer and enable airplane
 mode or lock the screen. Still useful sometimes.
 
 #### [Pomodoro.app (OSX)][13]
-[\[screenshot\]](http://f.cl.ly/items/2w34273X191m1W1r1B2i/Screenshot_6_30_13_9_15_PM-2.png)
+
+![](http://f.cl.ly/items/2w34273X191m1W1r1B2i/Screenshot_6_30_13_9_15_PM-2.png)
 
 The most advanced OSX Pomodoro I've seen. You can configure everything.
 Pomodoro length, break length, automatic restarts, sounds, Growl
@@ -177,3 +184,4 @@ That's it. Be productive, respect your time, and happy Pomodoring!
 [13]: https://github.com/ugol/pomodoro
 [14]: http://cl.ly/3Q3H333y2132
 [15]: https://github.com/vrybas/dotfiles/blob/4b0f29c0dd688f8bb78eec5d66f6c657a4bf9bb1/thyme/thymerc.symlink#L4
+[16]: https://twitter.com/kubem/status/350390764515233792
