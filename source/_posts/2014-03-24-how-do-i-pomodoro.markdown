@@ -7,9 +7,9 @@ categories:
 ---
 
 I'm a big fan of **Pomodoro** time management technique, created by
-Francesco
-Cirillo in the 80's. In this post I'll describe what it is, how I use it
-(tools and their tweaks), and how it helps me to get through my day.
+Francesco Cirillo in the 80's. In this post I'll describe what it is,
+how I use it (tools and their tweaks), and how it helps me to get
+through my day.
 
 <!-- more -->
 
