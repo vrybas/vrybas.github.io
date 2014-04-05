@@ -23,7 +23,7 @@ Where's your application then?
 {% youtube WpkDN78P884 %}
 
 Your business logic got nothing to do with the WEB or database storage.
-It's just a details! The core is in **Interactors** & **Entities**.
+That's just a details. The core is in **Interactors** & **Entities**.
 
 ###### References:
 

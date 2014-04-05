@@ -111,6 +111,13 @@ class IsMatchesConditionsHash < Struct.new(:model_adapter, :subject, :conditions
 end
 ```
 
+We can go deeper of course. Shave the yak completely. But that's a good
+start.
+
+Actually, in this case, the implementation was moved back to the
+original class with a few private methods extracted. But nice thing
+about Method Object - it helps to understand all the dependencies this
+beast have, so you can deal with it.
 
 ###### References:
 
