@@ -1,4 +1,6 @@
 .bundle
+.rbenv-gemsets
+.gems
 .DS_Store
 .sass-cache
 .gist-cache
