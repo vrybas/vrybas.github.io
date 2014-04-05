@@ -20,7 +20,7 @@ Where's your application then?
 
 [Ruby Midwest 2011 - Keynote: Architecture the Lost Years by Robert Martin][1]
 
-[![Uncle Bob](http://cl.ly/image/3y2c1x2N3p1G/Screen%20Shot%202014-04-05%20at%205.30.47%20PM.png)][1]
+{% youtube WpkDN78P884 %}
 
 Your business logic got nothing to do with the WEB or database storage.
 It's just a details! The core is in **Interactors** & **Entities**.
@@ -30,7 +30,7 @@ It's just a details! The core is in **Interactors** & **Entities**.
 - [Bob Martin - "Architecture. The Lost Years."][1]
 - [Practicing Ruby Issue #4.11  - "Responsibility-centric vs.  data-centric design"][3]
 - [Grouper - "Rails. The Missing Parts. Interactors."][2]
-- [↑ & epic discussion on Hacker news][8] (mustread)
+- [↑ & epic discussion on Hacker News][8] (mustread)
 - [InfoQ - Domain Driven Design Quickly][9]
 - [Focused Controller gem][6]
 - [Decent Exposure gem][7]
