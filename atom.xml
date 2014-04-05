@@ -4,7 +4,7 @@
   <title><![CDATA[@vrybas.(blogs).here]]></title>
   <link href="http://vrybas.github.io/atom.xml" rel="self"/>
   <link href="http://vrybas.github.io/"/>
-  <updated>2014-04-05T18:40:13+07:00</updated>
+  <updated>2014-04-05T20:43:12+07:00</updated>
   <id>http://vrybas.github.io/</id>
   <author>
     <name><![CDATA[Vladimir Rybas]]></name>
@@ -35,7 +35,7 @@
 
 
 <p>Your business logic got nothing to do with the WEB or database storage.
-It&rsquo;s just a details! The core is in <strong>Interactors</strong> &amp; <strong>Entities</strong>.</p>
+That&rsquo;s just a details. The core is in <strong>Interactors</strong> &amp; <strong>Entities</strong>.</p>
 
 <h6>References:</h6>
 
