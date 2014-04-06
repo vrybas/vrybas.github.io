@@ -7,31 +7,42 @@ categories:
 ---
 
 
-
 A **Controller/View** is just an Input/Output pipe.
 
 A **Model** is just a Data Storage pipe.
 
 Where's your application then?
 
-<!-- more -->
-
-**TL; DR**
+Uncle Bob got the answer:
 
 [Ruby Midwest 2011 - Keynote: Architecture the Lost Years by Robert Martin][1]
 
 {% youtube WpkDN78P884 %}
 
-Your business logic got nothing to do with the WEB or database storage.
-That's just a details. The core is in **Interactors** & **Entities**.
+The MVC is not your applcation architecture. It's just a tiny part of
+it. The real Application should have it's own architecture(built in with
+the best OOP practices and patterns), and interact with your
+I/O(controllers) and data storage(models) via limited API.
 
-###### References:
+The real Application should be in **Interactors** & **Entities**(or
+similar structure). It should be in the **Service Layer**.
+
+**Controller** => **Interactor** => **Entity** => **Model**
+
+Controller shouldn't speak to the Model directly. And Model shouldn't
+speak to other Models. And all the dependencies should go only one way,
+but not the other.
+
+
+##### References:
 
 - [Bob Martin - "Architecture. The Lost Years."][1]
 - [Practicing Ruby Issue #4.11  - "Responsibility-centric vs.  data-centric design"][3]
 - [Grouper - "Rails. The Missing Parts. Interactors."][2]
 - [↑ & epic discussion on Hacker News][8] (mustread)
 - [InfoQ - Domain Driven Design Quickly][9]
+- [Jared Carrol - Does My Rails App Need a Service Layer?][11]
+- [Wikipedia - Data, Context and Interaction(DCI)][12]
 - [Focused Controller gem][6]
 - [Decent Exposure gem][7]
 - [Ruby Rogues Parley discussion][5]
@@ -46,3 +57,5 @@ That's just a details. The core is in **Interactors** & **Entities**.
 [8]: https://news.ycombinator.com/item?id=7335211
 [9]: http://www.amazon.com/Object-Oriented-Software-Engineering-Approach/dp/0201544350/
 [10]: http://www.infoq.com/minibooks/domain-driven-design-quickly
+[11]: http://blog.carbonfive.com/2012/01/10/does-my-rails-app-need-a-service-layer/
+[12]: http://en.wikipedia.org/wiki/Data,_context_and_interaction

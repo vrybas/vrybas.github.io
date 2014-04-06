@@ -10,11 +10,9 @@ There are few ways to decompose a large class, which has too many
 responsibilities. The one is to extract a module(mixin/concern).
 Another is to extract a Method Object(or Service Object).
 
-<!-- more -->
-
 **TL; DR**
 
-1. Take a huge method and copy-paste it to it's own class.
+1. Take a huge method and extract it to it's own class.
 2. Pass all dependencies as parameters
 3. Replace body of original method with Method Object call.
 
