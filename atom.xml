@@ -4,7 +4,7 @@
   <title><![CDATA[@vrybas.(blogs).here]]></title>
   <link href="http://vrybas.github.io/atom.xml" rel="self"/>
   <link href="http://vrybas.github.io/"/>
-  <updated>2014-04-05T21:01:24+07:00</updated>
+  <updated>2014-04-06T20:59:26+07:00</updated>
   <id>http://vrybas.github.io/</id>
   <author>
     <name><![CDATA[Vladimir Rybas]]></name>
@@ -24,20 +24,28 @@
 
 <p>Where&rsquo;s your application then?</p>
 
-<!-- more -->
-
-
-<p><strong>TL; DR</strong></p>
+<p>Uncle Bob got the answer:</p>
 
 <p><a href="http://www.confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years">Ruby Midwest 2011 &ndash; Keynote: Architecture the Lost Years by Robert Martin</a></p>
 
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/WpkDN78P884 "></iframe></div>
 
 
-<p>Your business logic got nothing to do with the WEB or database storage.
-That&rsquo;s just a details. The core is in <strong>Interactors</strong> &amp; <strong>Entities</strong>.</p>
+<p>The MVC is not your applcation architecture. It&rsquo;s just a tiny part of
+it. The real Application should have it&rsquo;s own architecture(built in with
+the best OOP practices and patterns), and interact with your
+I/O(controllers) and data storage(models) via limited API.</p>
 
-<h6>References:</h6>
+<p>The real Application should be in <strong>Interactors</strong> &amp; <strong>Entities</strong>(or
+similar structure). It should be in the <strong>Service Layer</strong>.</p>
+
+<p><strong>Controller</strong> => <strong>Interactor</strong> => <strong>Entity</strong> => <strong>Model</strong></p>
+
+<p>Controller shouldn&rsquo;t speak to the Model directly. And Model shouldn&rsquo;t
+speak to other Models. And all the dependencies should go only one way,
+but not the other.</p>
+
+<h5>References:</h5>
 
 <ul>
 <li><a href="http://www.confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years">Bob Martin &ndash; &ldquo;Architecture. The Lost Years.&rdquo;</a></li>
@@ -45,6 +53,8 @@ That&rsquo;s just a details. The core is in <strong>Interactors</strong> &amp; <
 <li><a href="http://eng.joingrouper.com/blog/2014/03/03/rails-the-missing-parts-interactors">Grouper &ndash; &ldquo;Rails. The Missing Parts. Interactors.&rdquo;</a></li>
 <li><a href="https://news.ycombinator.com/item?id=7335211">↑ &amp; epic discussion on Hacker News</a> (mustread)</li>
 <li><a href="http://www.amazon.com/Object-Oriented-Software-Engineering-Approach/dp/0201544350/">InfoQ &ndash; Domain Driven Design Quickly</a></li>
+<li><a href="http://blog.carbonfive.com/2012/01/10/does-my-rails-app-need-a-service-layer/">Jared Carrol &ndash; Does My Rails App Need a Service Layer?</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Data,_context_and_interaction">Wikipedia &ndash; Data, Context and Interaction(DCI)</a></li>
 <li><a href="https://github.com/jonleighton/focused_controller">Focused Controller gem</a></li>
 <li><a href="https://github.com/voxdolo/decent_exposure">Decent Exposure gem</a></li>
 <li><a href="http://parley.rubyrogues.com/t/dhh-debating-controllers-abstracts-on-hn/1823/26">Ruby Rogues Parley discussion</a></li>
@@ -62,13 +72,10 @@ That&rsquo;s just a details. The core is in <strong>Interactors</strong> &amp; <
 responsibilities. The one is to extract a module(mixin/concern).
 Another is to extract a Method Object(or Service Object).</p>
 
-<!-- more -->
-
-
 <p><strong>TL; DR</strong></p>
 
 <ol>
-<li>Take a huge method and copy-paste it to it&rsquo;s own class.</li>
+<li>Take a huge method and extract it to it&rsquo;s own class.</li>
 <li>Pass all dependencies as parameters</li>
 <li>Replace body of original method with Method Object call.</li>
 </ol>
