@@ -4,7 +4,7 @@
   <title><![CDATA[@vrybas.(blogs).here]]></title>
   <link href="http://vrybas.github.io/atom.xml" rel="self"/>
   <link href="http://vrybas.github.io/"/>
-  <updated>2014-04-06T20:59:26+07:00</updated>
+  <updated>2014-04-07T07:58:11+07:00</updated>
   <id>http://vrybas.github.io/</id>
   <author>
     <name><![CDATA[Vladimir Rybas]]></name>
@@ -68,11 +68,7 @@ but not the other.</p>
     <link href="http://vrybas.github.io/blog/2014/03/25/method-object/"/>
     <updated>2014-03-25T07:06:42+07:00</updated>
     <id>http://vrybas.github.io/blog/2014/03/25/method-object</id>
-    <content type="html"><![CDATA[<p>There are few ways to decompose a large class, which has too many
-responsibilities. The one is to extract a module(mixin/concern).
-Another is to extract a Method Object(or Service Object).</p>
-
-<p><strong>TL; DR</strong></p>
+    <content type="html"><![CDATA[<p>Here&rsquo;s how you can deal with huge and messy method.</p>
 
 <ol>
 <li>Take a huge method and extract it to it&rsquo;s own class.</li>
@@ -265,9 +261,6 @@ beast have, so you can deal with it.</p>
 <h6>References:</h6>
 
 <ul>
-<li><a href="https://gist.github.com/ryanb/4172391">Ryan Bates &ndash; My issues with Modules</a></li>
-<li><a href="http://railscasts.com/episodes/398-service-objects">RailsCasts Pro &ndash; Service Objects</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Composition_over_inheritance">Wikipedia &ndash; Composition over Inheritance</a></li>
 <li><a href="http://sourcemaking.com/refactoring/replace-method-with-method-object">SourceMaking &ndash; Replace Method with Method Object</a></li>
 </ul>
 
