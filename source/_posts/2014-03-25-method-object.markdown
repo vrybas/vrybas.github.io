@@ -6,11 +6,7 @@ comments: true
 categories:
 ---
 
-There are few ways to decompose a large class, which has too many
-responsibilities. The one is to extract a module(mixin/concern).
-Another is to extract a Method Object(or Service Object).
-
-**TL; DR**
+Here's how you can deal with huge and messy method.
 
 1. Take a huge method and extract it to it's own class.
 2. Pass all dependencies as parameters
@@ -119,12 +115,6 @@ beast have, so you can deal with it.
 
 ###### References:
 
-- [Ryan Bates - My issues with Modules][1]
-- [RailsCasts Pro - Service Objects][3]
-- [Wikipedia - Composition over Inheritance][2]
 - [SourceMaking - Replace Method with Method Object][4]
 
-[1]: https://gist.github.com/ryanb/4172391
-[2]: http://en.wikipedia.org/wiki/Composition_over_inheritance
-[3]: http://railscasts.com/episodes/398-service-objects
 [4]: http://sourcemaking.com/refactoring/replace-method-with-method-object
