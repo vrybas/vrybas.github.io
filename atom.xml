@@ -4,7 +4,7 @@
   <title><![CDATA[@vrybas.(blogs).here]]></title>
   <link href="http://vrybas.github.io/atom.xml" rel="self"/>
   <link href="http://vrybas.github.io/"/>
-  <updated>2014-04-11T11:56:55+07:00</updated>
+  <updated>2014-04-11T13:26:07+07:00</updated>
   <id>http://vrybas.github.io/</id>
   <author>
     <name><![CDATA[Vladimir Rybas]]></name>
@@ -46,10 +46,10 @@ asynchronous pair programming with unlimited collaborators. The value is
 tremendous.</p>
 
 <p>And PR got merged only when no one have better ideas. Ideally all team
-members, who are interested in keeping codebase clean and have a
-collective ownership(everyone, right?), should look through PR and leave
-:thumbsup: in comments. One thumb is required, others are optional(if
-you&rsquo;re in a hurry with shipment, which you souldn&rsquo;t).</p>
+members, who are interested in keeping codebase clean and to have a
+collective code ownership(everyone, right?), should look through PR and
+leave :thumbsup: in comments. One thumb is required, others are
+optional(if you&rsquo;re in a hurry with shipment, which you souldn&rsquo;t).</p>
 
 <p>Although this kind of Work-In-Progress PRs are possible only in
 repositories in which everyone has commit access to, I&rsquo;d suggest to try
