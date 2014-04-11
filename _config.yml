@@ -99,4 +99,4 @@ google_analytics_tracking_id: UA-10820800-4
 # Facebook Like
 facebook_like: true
 
-emoji_dir: images/emoji
+emoji_dir: ../images/emoji
