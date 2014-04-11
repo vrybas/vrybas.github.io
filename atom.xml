@@ -4,7 +4,7 @@
   <title><![CDATA[@vrybas.(blogs).here]]></title>
   <link href="http://vrybas.github.io/atom.xml" rel="self"/>
   <link href="http://vrybas.github.io/"/>
-  <updated>2014-04-07T07:58:11+07:00</updated>
+  <updated>2014-04-11T10:38:37+07:00</updated>
   <id>http://vrybas.github.io/</id>
   <author>
     <name><![CDATA[Vladimir Rybas]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Work-In-Progress Pull Requests]]></title>
+    <link href="http://vrybas.github.io/blog/2014/04/11/wip-pull-requests/"/>
+    <updated>2014-04-11T08:19:56+07:00</updated>
+    <id>http://vrybas.github.io/blog/2014/04/11/wip-pull-requests</id>
+    <content type="html"><![CDATA[<p>There&rsquo;ve been a <a href="http://oldblog.antirez.com/post/pull-requests-are-not-conversations.html">lot</a> <a href="https://github.com/torvalds/linux/pull/17#issuecomment-5654674">of</a> <a href="https://netguru.co/blog/posts/ups-and-downs-of-pull-request-flow-part-1">criticism</a> on Github Pull Requests
+lately.</p>
+
+<p>The summary is pretty much in <a href="https://news.ycombinator.com/item?id=2183287">this</a> Hacker News comment:</p>
+
+<blockquote><p>&hellip;GitHub is missing this kind of environment(IRC, Mailing List), so
+it&rsquo;s almost inevitable that first contact between maintainers and
+potential contributors usually comes in the form of a pull request.</p></blockquote>
+
+<p>&hellip; and there&rsquo;s no code review and discussion is done BEFORE a pull
+request, which is the main reason so many PRs are not accepted.</p>
+
+<p>While it&rsquo;s definitely true, it don&rsquo;t have to be this way.</p>
+
+<p>There&rsquo;s a common mental model the Pull Request is something finished.
+The ready-to-ship kind of thing.</p>
+
+<p>Well, not always.</p>
+
+<p>In our team, we try to send Pull Requests as soon as there&rsquo;s one commit
+in a new branch. Contributor starts with some basic ideas, small
+patches, maybe even just failing tests. And then the PR grows
+collaboratively. Somebody contributes with comment. Somebody does
+commit. Sometimes commits are reverted and replaced with better
+solutions. It&rsquo;s like an asynchronous pair programming with unlimited
+collaborators. The value is tremendous.</p>
+
+<p>And PR got merged only when no one have better ideas. Ideally all team
+members, who are interested in keeping codebase clean and have a
+collective ownership(everyone, right?), should look through PR and leave
+:thumbsup: in comments. One thumb is required, others are optional(if
+you&rsquo;re in a hurry with shipment, which you souldn&rsquo;t).</p>
+
+<p>Although this kind of Work-In-Progress PRs are possible only in
+repositories in which everyone has commit access to, I&rsquo;d suggest to try
+this approach when sending PR from a fork. The early-on feedback is
+still very much valuable.</p>
+
+<h5>References:</h5>
+
+<ul>
+<li><a href="http://oldblog.antirez.com/post/pull-requests-are-not-conversations.html">@antirez &ndash; Pull requests are not conversations</a></li>
+<li><a href="https://news.ycombinator.com/item?id=2182873">↑ &amp; discussion on Hacker News</a></li>
+<li><a href="https://github.com/torvalds/linux/pull/17#issuecomment-5654674">@torvalds &ndash; &ldquo;I don&rsquo;t do github pull requests&hellip;&rdquo;</a></li>
+<li><a href="https://netguru.co/blog/posts/ups-and-downs-of-pull-request-flow-part-1">@madsheep &ndash; Ups and Downs of Pull Request Flow</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails and Pipes]]></title>
@@ -51,7 +106,7 @@ but not the other.</p>
 <li><a href="http://www.confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years">Bob Martin &ndash; &ldquo;Architecture. The Lost Years.&rdquo;</a></li>
 <li><a href="https://practicingruby.com/articles/responsibility-centric-vs-data-centric-design">Practicing Ruby Issue #4.11  &ndash; &ldquo;Responsibility-centric vs.  data-centric design&rdquo;</a></li>
 <li><a href="http://eng.joingrouper.com/blog/2014/03/03/rails-the-missing-parts-interactors">Grouper &ndash; &ldquo;Rails. The Missing Parts. Interactors.&rdquo;</a></li>
-<li><a href="https://news.ycombinator.com/item?id=7335211">↑ &amp; epic discussion on Hacker News</a> (mustread)</li>
+<li><a href="https://news.ycombinator.com/item?id=7335211">↑ &amp; epic discussion on Hacker News</a></li>
 <li><a href="http://www.amazon.com/Object-Oriented-Software-Engineering-Approach/dp/0201544350/">InfoQ &ndash; Domain Driven Design Quickly</a></li>
 <li><a href="http://blog.carbonfive.com/2012/01/10/does-my-rails-app-need-a-service-layer/">Jared Carrol &ndash; Does My Rails App Need a Service Layer?</a></li>
 <li><a href="http://en.wikipedia.org/wiki/Data,_context_and_interaction">Wikipedia &ndash; Data, Context and Interaction(DCI)</a></li>
