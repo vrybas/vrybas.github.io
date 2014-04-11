@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Rails and Pipes"
+title: "Rails and Pipes (DDD notes)"
 date: 2014-04-04 07:06:42 +0700
 comments: true
 categories:
