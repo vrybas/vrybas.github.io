@@ -39,7 +39,7 @@ but not the other.
 - [Bob Martin - "Architecture. The Lost Years."][1]
 - [Practicing Ruby Issue #4.11  - "Responsibility-centric vs.  data-centric design"][3]
 - [Grouper - "Rails. The Missing Parts. Interactors."][2]
-- [↑ & epic discussion on Hacker News][8] (mustread)
+- [↑ & epic discussion on Hacker News][8]
 - [InfoQ - Domain Driven Design Quickly][9]
 - [Jared Carrol - Does My Rails App Need a Service Layer?][11]
 - [Wikipedia - Data, Context and Interaction(DCI)][12]
