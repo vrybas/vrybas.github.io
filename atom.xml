@@ -4,7 +4,7 @@
   <title><![CDATA[@vrybas.(blogs).here]]></title>
   <link href="http://vrybas.github.io/atom.xml" rel="self"/>
   <link href="http://vrybas.github.io/"/>
-  <updated>2014-04-11T11:31:20+07:00</updated>
+  <updated>2014-04-11T11:56:55+07:00</updated>
   <id>http://vrybas.github.io/</id>
   <author>
     <name><![CDATA[Vladimir Rybas]]></name>
@@ -324,9 +324,9 @@ beast have, so you can deal with it.</p>
   
   <entry>
     <title type="html"><![CDATA[How Do I Pomodoro]]></title>
-    <link href="http://vrybas.github.io/blog/2014/03/24/how-do-i-pomodoro/"/>
-    <updated>2014-03-24T07:38:21+07:00</updated>
-    <id>http://vrybas.github.io/blog/2014/03/24/how-do-i-pomodoro</id>
+    <link href="http://vrybas.github.io/blog/2013/07/24/how-do-i-pomodoro/"/>
+    <updated>2013-07-24T07:38:21+07:00</updated>
+    <id>http://vrybas.github.io/blog/2013/07/24/how-do-i-pomodoro</id>
     <content type="html"><![CDATA[<p>I&rsquo;m a big fan of <strong>Pomodoro</strong> time management technique, created by
 Francesco Cirillo in the 80&rsquo;s. In this post I&rsquo;ll describe what it is,
 how I use it (tools and their tweaks), and how it helps me to get
