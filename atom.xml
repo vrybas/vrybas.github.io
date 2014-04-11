@@ -4,7 +4,7 @@
   <title><![CDATA[@vrybas.(blogs).here]]></title>
   <link href="http://vrybas.github.io/atom.xml" rel="self"/>
   <link href="http://vrybas.github.io/"/>
-  <updated>2014-04-11T10:40:38+07:00</updated>
+  <updated>2014-04-11T10:45:27+07:00</updated>
   <id>http://vrybas.github.io/</id>
   <author>
     <name><![CDATA[Vladimir Rybas]]></name>
@@ -69,7 +69,7 @@ still very much valuable.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Rails and Pipes]]></title>
+    <title type="html"><![CDATA[Rails and Pipes (DDD Notes)]]></title>
     <link href="http://vrybas.github.io/blog/2014/04/04/rails-and-pipes/"/>
     <updated>2014-04-04T07:06:42+07:00</updated>
     <id>http://vrybas.github.io/blog/2014/04/04/rails-and-pipes</id>
