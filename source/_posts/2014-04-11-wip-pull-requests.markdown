@@ -34,10 +34,10 @@ asynchronous pair programming with unlimited collaborators. The value is
 tremendous.
 
 And PR got merged only when no one have better ideas. Ideally all team
-members, who are interested in keeping codebase clean and have a
-collective ownership(everyone, right?), should look through PR and leave
-:thumbsup: in comments. One thumb is required, others are optional(if
-you're in a hurry with shipment, which you souldn't).
+members, who are interested in keeping codebase clean and to have a
+collective code ownership(everyone, right?), should look through PR and
+leave :thumbsup: in comments. One thumb is required, others are
+optional(if you're in a hurry with shipment, which you souldn't).
 
 Although this kind of Work-In-Progress PRs are possible only in
 repositories in which everyone has commit access to, I'd suggest to try
