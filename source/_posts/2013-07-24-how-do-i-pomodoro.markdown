@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How Do I Pomodoro"
-date: 2014-03-24 07:38:21 +0700
+date: 2013-07-24 07:38:21 +0700
 comments: true
 categories:
 ---
