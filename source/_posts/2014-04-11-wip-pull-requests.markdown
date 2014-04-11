@@ -25,13 +25,13 @@ The ready-to-ship kind of thing.
 
 Well, not always.
 
-In our team, we try to send Pull Requests as soon as there's one commit
-in a new branch. Contributor starts with some basic ideas, small
-patches, maybe even just failing tests. And then the PR grows
-collaboratively. Somebody contributes with comment. Somebody does
-commit. Sometimes commits are reverted and replaced with better
-solutions. It's like an asynchronous pair programming with unlimited
-collaborators. The value is tremendous.
+In our team, we send Pull Requests as soon as there's one commit in a
+new branch. Contributor starts with some basic ideas, small patches,
+maybe even just failing tests. And then the PR grows collaboratively.
+Somebody contributes with comment. Somebody does commit. Sometimes
+commits are reverted and replaced with better solutions. It's like an
+asynchronous pair programming with unlimited collaborators. The value is
+tremendous.
 
 And PR got merged only when no one have better ideas. Ideally all team
 members, who are interested in keeping codebase clean and have a
