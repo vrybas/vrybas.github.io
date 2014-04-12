@@ -6,6 +6,28 @@ comments: true
 categories:
 ---
 
+## What is GRASP?
+
+## Why it's important?
+
+## Controller
+
+## Creator
+
+## High Cohension
+
+## Indirection
+
+## Information Expert
+
+## Low Coupling
+
+## Polymorphism
+
+## Protected Variations
+
+## Pure Fabrication
+
 ##### References:
 
 - [Wikipedia - General Responsibility Assignment Software Patterns][1]
