@@ -8,7 +8,7 @@ categories:
 
 ## What is GRASP?
 
-**GRASP** stands for General Responsibility Assignment Software
+**[GRASP][1]** stands for General Responsibility Assignment Software
 Patterns and Principles.
 
 ## Why it's important?
