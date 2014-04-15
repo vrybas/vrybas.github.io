@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GRASP in Ruby"
+title: "GRASP in Ruby(on Rails)"
 date: 2014-04-12 14:51:59 +0700
 comments: true
 categories:
@@ -9,21 +9,20 @@ categories:
 ## What is GRASP?
 
 **GRASP** stands for General Responsibility Assignment Software
-Patterns.
+Patterns and Principles.
 
 ## Why it's important?
 
-It turns out that Responsibilities Assignment is one of the most
-important skills in OOP.
+Responsibilities Assignment is one of the most important skills in OOP.
 
 The two major problems of relatively large codebases - code is messy and
 code is coupled. Usually it's messy because it's coupled. And often
 times the cause is wrong responsibilities assignment.
 
-So, GRASP is a set of patterns, which helps to distribute
-responsibilities between objects.
+So, GRASP helps to effectively distribute responsibilities between
+objects.
 
-These patterns are:
+These patterns and principles are:
 
 * Controller
 * Creator
@@ -38,7 +37,7 @@ These patterns are:
 ## Controller
 
 Controller is an object within the system which handles incoming
-parameters and delegate work to others
+parameters and delegate work to others.
 
 That's what "C" in "MVC" for. In Rails we have our Controllers, which
 handle incoming requests. But, according to GRASP, they should meet a
@@ -73,11 +72,29 @@ The responsibilities of a given element should be strongly related and
 highly focused.
 
 But Rails models usually looks like a bunch of unrelated methods, just
-happening to use the data from one database table.
+happening to use the data from one database table. So, "Fat Models"
+strongly violate this principle. Good news there's [plenty][3] of
+[ways][4] to decompose them.
+
+Speaking of modules and "Concerns", it is actually [cheating][5],
+because you're not taking responsibility away, you're hiding it. But it
+still useful in some cases, and might be a first step on gathering and
+extracting related pieces of functionality.
 
 ## Indirection
 
-Like Controller between Model and View
+The Indirection pattern supports low coupling (and reuse potential)
+between two elements by assigning the responsibility of mediation
+between them to an intermediate object.
+
+MVC shows a good example of Indirection. Views don't know anything about
+the Models(or shouldn't anyway), because there's a Controller between
+them.
+
+But in a complex system that's not enough. Ar Controller should not know
+about the Models either, talking to them through Contexts, or UseCases,
+or Interactors. And Controller action clearly shouldn't be using several
+models at once.
 
 ## Information Expert
 
@@ -105,6 +122,13 @@ up to achieve low coupling e.t.c.
 
 - [Wikipedia - General Responsibility Assignment Software Patterns][1]
 - [Rails and Pipes(DDD notes)][2]
+- [Code Climate Blog - 7 Patterns to Refactor Fat ActiveRecord Models][3]
+- [@dhh - Put chubby models on a diet with concerns][4]
+- [@ryanb - My issues with Modules][5]
+
 
 [1]: http://en.wikipedia.org/wiki/GRASP_(object-oriented_design)
 [2]: http://vrybas.github.io/blog/2014/04/04/rails-and-pipes/
+[3]: http://blog.codeclimate.com/blog/2012/10/17/7-ways-to-decompose-fat-activerecord-models/
+[4]: http://signalvnoise.com/posts/3372-put-chubby-models-on-a-diet-with-concerns
+[5]: https://gist.github.com/ryanb/4172391
