@@ -71,7 +71,7 @@ tremendously, it's a clear sign you need a [Service Layer][2].
 The responsibilities of a given element should be strongly related and
 highly focused.
 
-But Rails models usually looks like a bunch of unrelated methods, just
+But Rails models usually look like a bunch of unrelated methods, just
 happening to use the data from one database table. So, "Fat Models"
 strongly violate this principle. Good news there's [plenty][3] of
 [ways][4] to decompose them.
