@@ -77,7 +77,7 @@ happening to use the data from one database table. So, "Fat Models"
 strongly violate this principle. Good news there's plenty of
 ways([3],[4]) to decompose them.
 
-Speaking of modules and "Concerns", it is actually cheating([5]),
+Speaking of modules and "Concerns", it is kind of cheating([5]),
 because you're not taking responsibility away, you're hiding it. But it
 still useful in some cases, and might be a first step on gathering and
 extracting related pieces of functionality.
