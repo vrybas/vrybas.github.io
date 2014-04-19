@@ -4,7 +4,7 @@
   <title><![CDATA[@vrybas.(blogs).here]]></title>
   <link href="http://vrybas.github.io/atom.xml" rel="self"/>
   <link href="http://vrybas.github.io/"/>
-  <updated>2014-04-19T16:36:01+07:00</updated>
+  <updated>2014-04-19T16:53:58+07:00</updated>
   <id>http://vrybas.github.io/</id>
   <author>
     <name><![CDATA[Vladimir Rybas]]></name>
@@ -14,10 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[GRASP in Ruby(on Rails)]]></title>
-    <link href="http://vrybas.github.io/blog/2014/04/12/grasp-in-ruby/"/>
+    <title type="html"><![CDATA[GRASP for Ruby(on Rails)]]></title>
+    <link href="http://vrybas.github.io/blog/2014/04/12/grasp-for-ruby-on-rails/"/>
     <updated>2014-04-12T14:51:59+07:00</updated>
-    <id>http://vrybas.github.io/blog/2014/04/12/grasp-in-ruby</id>
+    <id>http://vrybas.github.io/blog/2014/04/12/grasp-for-ruby-on-rails</id>
     <content type="html"><![CDATA[<h2>What is GRASP?</h2>
 
 <p><strong>GRASP(<a href="http://en.wikipedia.org/wiki/GRASP_(object-oriented_design)">1</a>)</strong> stands for General Responsibility Assignment Software
