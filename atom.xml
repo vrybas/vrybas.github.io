@@ -4,7 +4,7 @@
   <title><![CDATA[@vrybas.(blogs).here]]></title>
   <link href="http://vrybas.github.io/atom.xml" rel="self"/>
   <link href="http://vrybas.github.io/"/>
-  <updated>2014-04-15T20:59:33+07:00</updated>
+  <updated>2014-04-19T16:36:01+07:00</updated>
   <id>http://vrybas.github.io/</id>
   <author>
     <name><![CDATA[Vladimir Rybas]]></name>
@@ -12,6 +12,176 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[GRASP in Ruby(on Rails)]]></title>
+    <link href="http://vrybas.github.io/blog/2014/04/12/grasp-in-ruby/"/>
+    <updated>2014-04-12T14:51:59+07:00</updated>
+    <id>http://vrybas.github.io/blog/2014/04/12/grasp-in-ruby</id>
+    <content type="html"><![CDATA[<h2>What is GRASP?</h2>
+
+<p><strong>GRASP(<a href="http://en.wikipedia.org/wiki/GRASP_(object-oriented_design)">1</a>)</strong> stands for General Responsibility Assignment Software
+Patterns and Principles.</p>
+
+<h2>Why it&rsquo;s important?</h2>
+
+<p>Responsibilities Assignment is one of the most important skills in OOP.</p>
+
+<p>The two major problems of relatively large codebases &ndash; code is messy and
+code is coupled. Usually it&rsquo;s messy because it&rsquo;s coupled. And often
+times the cause is wrong responsibilities assignment.</p>
+
+<p>So, GRASP helps to effectively distribute responsibilities between
+objects.</p>
+
+<p>These patterns and principles are:</p>
+
+<ul>
+<li>Controller</li>
+<li>Creator</li>
+<li>High Cohension</li>
+<li>Indirection</li>
+<li>Information Expert</li>
+<li>Low Coupling</li>
+<li>Polymorphism</li>
+<li>Protected Variations</li>
+<li>Pure Fabricaton</li>
+</ul>
+
+
+<h2>Controller</h2>
+
+<p><em>Controller is an object within the system which handles incoming
+parameters and delegate work to others.</em></p>
+
+<p>That&rsquo;s what &ldquo;C&rdquo; in &ldquo;MVC&rdquo; for. In Rails we have our Controllers, which
+handle incoming requests. But, according to GRASP, they should meet a
+few requirements:</p>
+
+<ul>
+<li>The controller should delegate the work that needs to be done to other
+objects</li>
+<li>It only coordinates or controls the activity</li>
+<li>It should not do much work itself</li>
+</ul>
+
+
+<p>So, in other words, the controller should be skinny. Maybe so skinny it
+can only process incoming parameters and render results. All other work
+should be delegated if possible.</p>
+
+<h2>Creator</h2>
+
+<p><em>Creator is an object, which creates other objects.</em></p>
+
+<p>If the one class instance have enough data to create other class
+instance (or form other class instance) &ndash; it should proceed with
+creation.</p>
+
+<p>That&rsquo;s how you extract responsibilities. By gathering together a related
+data chunks with methods, required for its processing in a separate
+class, which instance can be used in current context.</p>
+
+<p><code>$RAILS_ROOT/lib</code> is your friend at this time. But if this folder grows
+tremendously, it&rsquo;s a clear sign you need a Service Layer(<a href="http://vrybas.github.io/blog/2014/04/04/rails-and-pipes/">2</a>).</p>
+
+<h2>High Cohension</h2>
+
+<p><em>The responsibilities of a given element should be strongly related and
+highly focused.</em></p>
+
+<p>But Rails models usually look like a bunch of unrelated methods, just
+happening to use the data from one database table. So, &ldquo;Fat Models&rdquo;
+strongly violate this principle. Good news there&rsquo;s plenty of
+ways(<a href="http://blog.codeclimate.com/blog/2012/10/17/7-ways-to-decompose-fat-activerecord-models/">3</a>,<a href="http://signalvnoise.com/posts/3372-put-chubby-models-on-a-diet-with-concerns">4</a>) to decompose them.</p>
+
+<p>Speaking of modules and &ldquo;Concerns&rdquo;, it is kind of cheating(<a href="https://gist.github.com/ryanb/4172391">5</a>),
+because you&rsquo;re not taking responsibility away, you&rsquo;re hiding it. But it
+still useful in some cases, and might be a first step on gathering and
+extracting related pieces of functionality.</p>
+
+<h2>Indirection</h2>
+
+<p><em>The Indirection pattern supports low coupling (and reuse potential)
+between two elements by assigning the responsibility of mediation
+between them to an intermediate object.</em></p>
+
+<p>MVC shows a good example of Indirection. Views don&rsquo;t know anything about
+the Models(or shouldn&rsquo;t anyway), because there&rsquo;s a Controller between
+them.</p>
+
+<p>But in a complex system that&rsquo;s not enough. Ar Controller should not know
+about the Models either, talking to them through Contexts, or UseCases,
+or Interactors. And Controller action clearly shouldn&rsquo;t be using several
+models at once.</p>
+
+<h2>Information Expert</h2>
+
+<p><em>Responsibility should be placed in a class with the most information
+required to fulfill it&rsquo;s data.</em></p>
+
+<p>While this is a good general approach, it better not to be in conflict
+with <strong>High Cohension</strong> and not to produce God-classes(aka Fat Models).</p>
+
+<h2>Low Coupling</h2>
+
+<p>Principles of Low Coupling:</p>
+
+<ul>
+<li><em>Lower dependencies between classes</em></li>
+<li><em>Changes in one class should not impact other classes</em></li>
+<li><em>Higher Reuse Potential</em></li>
+</ul>
+
+
+<p>In Rails coupling often comes with chain(>2) of before_filters,
+ActiveRecord callbacks and stuff like <code>accept_nested_attributes_for</code>.</p>
+
+<p>To reduce a number of these harmful entities, you can use Creator class
+and it&rsquo;s variations. Need to synchronize a creation of two or more
+models during single HTTP request? Use an Interactor or UseCase in your
+controller and make the process as clear as possible. Ideally, your
+models should not know about each other more than they are
+related via <code>has_many/belongs_to</code> associations.</p>
+
+<h2>Polymorphism &amp; Protected Variations</h2>
+
+<p><em>According to Polymorphism, responsibility of defining the variation of
+behaviors based on type is assigned to the types for which this
+variation happens.</em></p>
+
+<p><em>The Protected Variations pattern protects elements from the variations
+on other elements (objects, systems, subsystems) by wrapping the focus
+of instability with an interface and using polymorphism to create
+various implementations of this interface.</em></p>
+
+<p>Sandi Metz excellent quote(<a href="http://www.sandimetz.com/blog/2009/06/12/ruby-case-statements-and-kind-of/">6</a>):</p>
+
+<blockquote><p>No object in your system should have to know the class of any other
+object in order to know how to behave.  Everything is a Duck.  Tell
+the Duck WHAT and the Duck should know HOW.</p></blockquote>
+
+<h2>Pure Fabrication</h2>
+
+<p><em>A Pure Fabrication is a class that does not represent a concept in the
+problem domain, specially made up to achieve low coupling, high
+cohesion, and the reuse potential thereof derived (when a solution
+presented by the Information Expert pattern does not). This kind of
+class is called &ldquo;Service&rdquo; in Domain-driven design.</em></p>
+
+<h5>References:</h5>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/GRASP_(object-oriented_design)">Wikipedia &ndash; General Responsibility Assignment Software Patterns</a></li>
+<li><a href="http://vrybas.github.io/blog/2014/04/04/rails-and-pipes/">Rails and Pipes(DDD notes)</a></li>
+<li><a href="http://blog.codeclimate.com/blog/2012/10/17/7-ways-to-decompose-fat-activerecord-models/">Code Climate Blog &ndash; 7 Patterns to Refactor Fat ActiveRecord Models</a></li>
+<li><a href="http://signalvnoise.com/posts/3372-put-chubby-models-on-a-diet-with-concerns">DHH &ndash; Put chubby models on a diet with concerns</a></li>
+<li><a href="https://gist.github.com/ryanb/4172391">Ryan Bates &ndash; My issues with Modules</a></li>
+<li><a href="http://www.sandimetz.com/blog/2009/06/12/ruby-case-statements-and-kind-of/">Sandi Metz &ndash; Ruby Case Statements and &lsquo;kind_of?&rsquo;</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Work-In-Progress Pull Requests]]></title>
