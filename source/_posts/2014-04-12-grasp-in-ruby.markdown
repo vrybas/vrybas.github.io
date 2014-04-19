@@ -8,7 +8,7 @@ categories:
 
 ## What is GRASP?
 
-**[GRASP][1]** stands for General Responsibility Assignment Software
+**GRASP([1])** stands for General Responsibility Assignment Software
 Patterns and Principles.
 
 ## Why it's important?
@@ -65,7 +65,7 @@ data chunks with methods, required for its processing in a separate
 class, which instance can be used in current context.
 
 `$RAILS_ROOT/lib` is your friend at this time. But if this folder grows
-tremendously, it's a clear sign you need a [Service Layer][2].
+tremendously, it's a clear sign you need a Service Layer([2]).
 
 ## High Cohension
 
@@ -74,10 +74,10 @@ highly focused._
 
 But Rails models usually look like a bunch of unrelated methods, just
 happening to use the data from one database table. So, "Fat Models"
-strongly violate this principle. Good news there's [plenty][3] of
-[ways][4] to decompose them.
+strongly violate this principle. Good news there's plenty of
+ways([3],[4]) to decompose them.
 
-Speaking of modules and "Concerns", it is actually [cheating][5],
+Speaking of modules and "Concerns", it is actually cheating([5]),
 because you're not taking responsibility away, you're hiding it. But it
 still useful in some cases, and might be a first step on gathering and
 extracting related pieces of functionality.
@@ -134,7 +134,7 @@ on other elements (objects, systems, subsystems) by wrapping the focus
 of instability with an interface and using polymorphism to create
 various implementations of this interface._
 
-Sandi Metz excellent [quote][6]:
+Sandi Metz excellent quote([6]):
 
 > No object in your system should have to know the class of any other
 > object in order to know how to behave.  Everything is a Duck.  Tell
@@ -154,9 +154,9 @@ class is called "Service" in Domain-driven design._
 - [Wikipedia - General Responsibility Assignment Software Patterns][1]
 - [Rails and Pipes(DDD notes)][2]
 - [Code Climate Blog - 7 Patterns to Refactor Fat ActiveRecord Models][3]
-- [@dhh - Put chubby models on a diet with concerns][4]
-- [@ryanb - My issues with Modules][5]
-- [@skmetz - Ruby Case Statements and `kind_of?`][6]
+- [DHH - Put chubby models on a diet with concerns][4]
+- [Ryan Bates - My issues with Modules][5]
+- [Sandi Metz - Ruby Case Statements and 'kind_of?'][6]
 
 [1]: http://en.wikipedia.org/wiki/GRASP_(object-oriented_design)
 [2]: http://vrybas.github.io/blog/2014/04/04/rails-and-pipes/
