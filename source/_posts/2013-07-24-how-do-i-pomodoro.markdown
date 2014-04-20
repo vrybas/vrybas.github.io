@@ -16,9 +16,9 @@ through my day.
 ## Interruptions
 
 Interruptions are horrible. They are your productivity's worst enemy.
-Jason Fried gave excellent [talk][1] on that. In fact, the most important
-measurement of quality of your working environment (and working style) is how
-much uninterrupted time you can have per day.
+Jason Fried gave excellent talk([1]) on that. In fact, the most
+important measurement of quality of your working environment (and
+working style) is how much uninterrupted time you can have per day.
 
 {% youtube 5XD2kNopsUs %}
 
@@ -41,7 +41,7 @@ on them on priority.
 
 ## Pomodoro is here to help
 
-So there's a Pomodoro Technique ([pdf][2]). In short, it offers you to work
+So there's a Pomodoro Technique([2]). In short, it offers you to work
 for a fixed amount of time, and then have a fixed short break.
 
 You set a timer to 25 minutes(canonical), and, during that time, you shut off
@@ -53,8 +53,8 @@ to come back to it later.
 After timer rings, you immediately stop what you're doing, checking your email
 and other messages, you go get that co-worker who had a question. And, more
 importantly, you're having a scheduled break for 5 minutes or so. It's a good
-time to stand up, walk outside, get some water and fresh air, [limber up][3],
-give your brain, eyes and whole body some rest.
+time to stand up, walk outside, get some water and fresh air, limber
+up([3]), give your brain, eyes and whole body some rest.
 
 [![](http://f.cl.ly/items/0h1M0D2T3T2n1W1e0h2A/Screen%20Shot%202014-03-24%20at%2011.01.21%20PM.png)][3]
 
@@ -65,7 +65,7 @@ exercise.
 
 ## But how 'bout my Flow?
 
-Yes, [Flow][4]. The thing with Flow is hard to get in and so easy to get
+Yes, Flow([4]). The thing with Flow is hard to get in and so easy to get
 out. Some of Pomodoro newbies complain that this forced break is a
 Flow-killer. But I don't think it is. Well, Pomodoro helps you to get into the
 Flow at the first place. And, again, you don't want to get lost for several
@@ -96,10 +96,11 @@ few [#procastodoros][16].
 ## There's an app for that
 
 In fact, that can be enough to use a kitchen timer (the one they're
-[offering][5] on the site) with just pen & paper. I know a bunch of developers
-who use pen & notebooks as a primary GTD tool and it works for them. And if it
-works for you - that's fine. But there sure some apps. I'll describe my
-favorites. Each one works best in certain circumstances.
+offering([5]) on the site) with just pen & paper. I know a bunch of
+developers who use pen & notebooks as a primary GTD tool and it works
+for them. And if it works for you - that's fine. But there sure some
+apps. I'll describe my favorites. Each one works best in certain
+circumstances.
 
 #### [Tomato.es (Web)][10]
 
@@ -171,7 +172,7 @@ That's it. Be productive, respect your time, and happy Pomodoring!
 - [Thyme][9]
 
 [1]: http://www.ted.com/talks/jason_fried_why_work_doesn_t_happen_at_work.html
-[2]: http://www.pomodorotechnique.com/download/pdf/ThePomodoroTechnique_v1-3.pdf
+[2]: http://en.wikipedia.org/wiki/Pomodoro_Technique
 [3]: http://infographicsmania.com/wp-content/uploads/2012/09/Bathroom-Break-Yoga-infographic.jpg
 [4]: http://en.wikipedia.org/wiki/Flow_(psychology)
 [5]: http://pomodorotechnique.com/timer/

@@ -6,10 +6,10 @@ comments: true
 categories:
 ---
 
-There've been a [lot][1] [of][2] [criticism][3] on Github Pull Requests
+There've been a lot of criticism([1],[2],[3]) on Github Pull Requests
 lately.
 
-The summary is pretty much in [this][4] Hacker News comment:
+The summary is pretty much in this([4]) Hacker News comment:
 
 > ...GitHub is missing this kind of environment(IRC, Mailing List), so
 > it's almost inevitable that first contact between maintainers and
