@@ -6,20 +6,15 @@ comments: true
 categories:
 ---
 
-
-A **Controller/View** is just an Input/Output pipe.
-
-A **Model** is just a Data Storage pipe.
-
-Where's your application then?
-
-Uncle Bob got the answer:
+Very interesting talk on Rails apps architecture by Uncle Bob.
 
 [Ruby Midwest 2011 - Keynote: Architecture the Lost Years by Robert Martin][1]
 
 {% youtube WpkDN78P884 %}
 
-The MVC is not your applcation architecture. It's just a tiny part of
+Here's the short summary:
+
+"The MVC is not your applcation architecture.  It's just a tiny part of
 it. The real Application should have it's own architecture(built in with
 the best OOP practices and patterns), and interact with your
 I/O(controllers) and data storage(models) via limited API.
@@ -31,12 +26,13 @@ similar structure). It should be in the **Service Layer**.
 
 Controller shouldn't speak to the Model directly. And Model shouldn't
 speak to other Models. And all the dependencies should go only one way,
-but not the other.
+but not the other."
 
+Well, this totally ruins the Rails Way, and not really applicable
+directly. But that's a good start and occasion to think about
+architecture, code organizing etc. Here's some materials on the topic I
+found useful and pleasant to read:
 
-##### References:
-
-- [Bob Martin - "Architecture. The Lost Years."][1]
 - [Practicing Ruby Issue #4.11  - "Responsibility-centric vs.  data-centric design"][3]
 - [Grouper - "Rails. The Missing Parts. Interactors."][2]
 - [↑ & epic discussion on Hacker News][8]
@@ -47,7 +43,6 @@ but not the other.
 - [Decent Exposure gem][7]
 - [Ruby Rogues Parley discussion][5]
 
-[1]: http://www.confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years
 [2]: http://eng.joingrouper.com/blog/2014/03/03/rails-the-missing-parts-interactors
 [3]: https://practicingruby.com/articles/responsibility-centric-vs-data-centric-design
 [4]: http://www.youtube.com/watch?v=4LMWsFbj6js
