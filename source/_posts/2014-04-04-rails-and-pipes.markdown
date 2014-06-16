@@ -8,7 +8,7 @@ categories:
 
 Very interesting talk on Rails apps architecture by Uncle Bob.
 
-[Ruby Midwest 2011 - Keynote: Architecture the Lost Years by Robert Martin][1]
+*Ruby Midwest 2011 - Keynote: Architecture the Lost Years by Robert Martin*
 
 {% youtube WpkDN78P884 %}
 
