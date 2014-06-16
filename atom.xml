@@ -4,7 +4,7 @@
   <title><![CDATA[@vrybas.(blogs).here]]></title>
   <link href="http://vrybas.github.io/atom.xml" rel="self"/>
   <link href="http://vrybas.github.io/"/>
-  <updated>2014-04-20T09:09:54+07:00</updated>
+  <updated>2014-06-16T16:35:50+07:00</updated>
   <id>http://vrybas.github.io/</id>
   <author>
     <name><![CDATA[Vladimir Rybas]]></name>
@@ -12,6 +12,103 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[TDD Resources]]></title>
+    <link href="http://vrybas.github.io/blog/2014/04/30/tdd-resources/"/>
+    <updated>2014-04-30T23:34:04+07:00</updated>
+    <id>http://vrybas.github.io/blog/2014/04/30/tdd-resources</id>
+    <content type="html"><![CDATA[<h2>Design:</h2>
+
+<h3>J.B. Rainsberger &ndash; <a href="http://vimeo.com/80533536">Integrated Tests Are A Scam</a></h3>
+
+<blockquote><ul>
+<li>They don&rsquo;t put pressure to the design</li>
+<li>You can&rsquo;t possibly test all cases</li>
+<li>Introduce &ldquo;Collaboration&rdquo; tests</li>
+<li>Introduce &ldquo;Contract&rdquo; tests</li>
+</ul>
+</blockquote>
+
+<h3>Chris Parsons &ndash; <a href="http://www.confreaks.com/videos/697-rubyconf2011-your-tests-are-lying-to-you">Your Tests Are Lying To You</a></h3>
+
+<blockquote><ul>
+<li>Some tests are saying they&rsquo;re Unit, but they&rsquo;re actually Integration</li>
+<li>Good design is easy to test &ndash; Corey Haines</li>
+<li>Mockist vs Classist</li>
+<li>Mocks are isolated, fast &amp; tell you about design flaws</li>
+</ul>
+</blockquote>
+
+<h3>Sandi Metz &ndash; <a href="http://www.youtube.com/watch?v=qT5iriwidRg">The Design of Tests</a></h3>
+
+<blockquote><ul>
+<li>Messages to self &ndash; rarely tested</li>
+<li>Incoming messages &ndash; assert on result</li>
+<li>Outgoing messages &ndash; test for calling</li>
+<li>Outgoing queries &ndash; don&rsquo;t test!</li>
+<li>Outgoing commands &ndash; expectations on mocks</li>
+</ul>
+</blockquote>
+
+<h2>Mocks:</h2>
+
+<h3>Martin Fowler &ndash; <a href="http://martinfowler.com/articles/mocksArentStubs.html">Mocks Aren&rsquo;t Stubs</a></h3>
+
+<blockquote><ul>
+<li>Mockist &amp; behavior design VS Classist &amp; STATE</li>
+</ul>
+</blockquote>
+
+<h3>Corey Haines &ndash; <a href="http://www.confreaks.com/videos/1237-aloharuby2012-yay-mocks">Yay! Mocks!</a></h3>
+
+<blockquote><ul>
+<li>Mocks lead to better design that easy to change</li>
+<li>OO design is about interactions &amp; roles</li>
+<li>Delegate the &ldquo;How&rdquo;</li>
+<li>Don&rsquo;t let mocks depend on other mocks</li>
+</ul>
+</blockquote>
+
+<h3>Gregory Moeck &ndash; <a href="http://www.confreaks.com/videos/659-rubyconf2011-why-you-don-t-get-mock-objects">Why You Don&rsquo;t Get Mock Objects</a></h3>
+
+<blockquote><ul>
+<li>Mocks assert on messages</li>
+<li>Stub returns value</li>
+<li>Mock Roles, not concrete objects.</li>
+</ul>
+</blockquote>
+
+<h3>Gary Bernhardt &ndash; <a href="https://www.destroyallsoftware.com/blog/2014/test-isolation-is-about-avoiding-mocks">Test Isolation Is About Avoiding Mocks</a></h3>
+
+<blockquote><ul>
+<li>Nested stubs are telling something about the design</li>
+<li>Good TDDers don&rsquo;t write nested mocks</li>
+<li>We write huge functions because there&rsquo;s no pressure of testing them
+isolated.</li>
+<li>Isolated tests are microscope of object interactions</li>
+<li>Don&rsquo;t let your tests make code less readable</li>
+<li>Don&rsquo;t isolate &ldquo;Collaborator&rdquo; classes</li>
+</ul>
+</blockquote>
+
+<h3>Piotr Solnica &ndash; <a href="http://solnic.eu/2014/05/22/mocking-and-ruby.html">Mocking and Ruby</a></h3>
+
+<blockquote><ul>
+<li>Mock only what you own
+  If you don&rsquo;t own it, you don&rsquo;t have control on it&rsquo;s evolution</li>
+<li>Don&rsquo;t mock just for speed</li>
+<li>Be aware that mocks introduce maintenance costs</li>
+<li>Keep mocks simple</li>
+<li>Mock rarely</li>
+</ul>
+</blockquote>
+
+<h2>Is TDD Dead?</h2>
+
+<h3>series: <a href="http://martinfowler.com/articles/is-tdd-dead/">Part 1 &ndash; 5</a></h3>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GRASP for Ruby(on Rails)]]></title>
@@ -208,12 +305,15 @@ The ready-to-ship kind of thing.</p>
 <p>Well, not always.</p>
 
 <p>In our team, we send Pull Requests as soon as there&rsquo;s one commit in a
-new branch. Contributor starts with some basic ideas, small patches,
-maybe even just failing tests. And then the PR grows collaboratively.
-Somebody contributes with comment. Somebody does commit. Sometimes
-commits are reverted and replaced with better solutions. It&rsquo;s like an
-asynchronous pair programming with unlimited collaborators. The value is
-tremendous.</p>
+new branch. Or even empty commit.</p>
+
+<p><code>git commit -m "initial commit: User can verify their account" --allow-empty</code></p>
+
+<p>Contributor starts with some basic ideas, small patches,
+failing tests. And then the PR grows collaboratively. Somebody
+contributes with comment. Somebody does commit. Sometimes commits are
+reverted and replaced with better solutions. It&rsquo;s like an asynchronous
+pair programming with unlimited collaborators. The value is tremendous.</p>
 
 <p>And PR got merged only when no one have better ideas. Ideally all team
 members, who are interested in keeping codebase clean and to have a
@@ -243,20 +343,16 @@ still very much valuable.</p>
     <link href="http://vrybas.github.io/blog/2014/04/04/rails-and-pipes/"/>
     <updated>2014-04-04T07:06:42+07:00</updated>
     <id>http://vrybas.github.io/blog/2014/04/04/rails-and-pipes</id>
-    <content type="html"><![CDATA[<p>A <strong>Controller/View</strong> is just an Input/Output pipe.</p>
+    <content type="html"><![CDATA[<p>Very interesting talk on Rails apps architecture by Uncle Bob.</p>
 
-<p>A <strong>Model</strong> is just a Data Storage pipe.</p>
-
-<p>Where&rsquo;s your application then?</p>
-
-<p>Uncle Bob got the answer:</p>
-
-<p><a href="http://www.confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years">Ruby Midwest 2011 &ndash; Keynote: Architecture the Lost Years by Robert Martin</a></p>
+<p>[Ruby Midwest 2011 &ndash; Keynote: Architecture the Lost Years by Robert Martin][1]</p>
 
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/WpkDN78P884 "></iframe></div>
 
 
-<p>The MVC is not your applcation architecture. It&rsquo;s just a tiny part of
+<p>Here&rsquo;s the short summary:</p>
+
+<p>&ldquo;The MVC is not your applcation architecture.  It&rsquo;s just a tiny part of
 it. The real Application should have it&rsquo;s own architecture(built in with
 the best OOP practices and patterns), and interact with your
 I/O(controllers) and data storage(models) via limited API.</p>
@@ -268,12 +364,14 @@ similar structure). It should be in the <strong>Service Layer</strong>.</p>
 
 <p>Controller shouldn&rsquo;t speak to the Model directly. And Model shouldn&rsquo;t
 speak to other Models. And all the dependencies should go only one way,
-but not the other.</p>
+but not the other.&#8221;</p>
 
-<h5>References:</h5>
+<p>Well, this totally ruins the Rails Way, and not really applicable
+directly. But that&rsquo;s a good start and occasion to think about
+architecture, code organizing etc. Here&rsquo;s some materials on the topic I
+found useful and pleasant to read:</p>
 
 <ul>
-<li><a href="http://www.confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years">Bob Martin &ndash; &ldquo;Architecture. The Lost Years.&rdquo;</a></li>
 <li><a href="https://practicingruby.com/articles/responsibility-centric-vs-data-centric-design">Practicing Ruby Issue #4.11  &ndash; &ldquo;Responsibility-centric vs.  data-centric design&rdquo;</a></li>
 <li><a href="http://eng.joingrouper.com/blog/2014/03/03/rails-the-missing-parts-interactors">Grouper &ndash; &ldquo;Rails. The Missing Parts. Interactors.&rdquo;</a></li>
 <li><a href="https://news.ycombinator.com/item?id=7335211">↑ &amp; epic discussion on Hacker News</a></li>

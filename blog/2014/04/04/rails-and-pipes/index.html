@@ -9,7 +9,7 @@
   <meta name="author" content="Vladimir Rybas">
 
   
-  <meta name="description" content="A Controller/View is just an Input/Output pipe. A Model is just a Data Storage pipe. Where&rsquo;s your application then? Uncle Bob got the answer: &hellip;">
+  <meta name="description" content="Very interesting talk on Rails apps architecture by Uncle Bob. [Ruby Midwest 2011 &ndash; Keynote: Architecture the Lost Years by Robert Martin][1] &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -104,20 +104,16 @@
   </header>
 
 
-<div class="entry-content"><p>A <strong>Controller/View</strong> is just an Input/Output pipe.</p>
+<div class="entry-content"><p>Very interesting talk on Rails apps architecture by Uncle Bob.</p>
 
-<p>A <strong>Model</strong> is just a Data Storage pipe.</p>
-
-<p>Where&rsquo;s your application then?</p>
-
-<p>Uncle Bob got the answer:</p>
-
-<p><a href="http://www.confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years">Ruby Midwest 2011 &ndash; Keynote: Architecture the Lost Years by Robert Martin</a></p>
+<p>[Ruby Midwest 2011 &ndash; Keynote: Architecture the Lost Years by Robert Martin][1]</p>
 
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/WpkDN78P884 "></iframe></div>
 
 
-<p>The MVC is not your applcation architecture. It&rsquo;s just a tiny part of
+<p>Here&rsquo;s the short summary:</p>
+
+<p>&ldquo;The MVC is not your applcation architecture.  It&rsquo;s just a tiny part of
 it. The real Application should have it&rsquo;s own architecture(built in with
 the best OOP practices and patterns), and interact with your
 I/O(controllers) and data storage(models) via limited API.</p>
@@ -129,12 +125,14 @@ similar structure). It should be in the <strong>Service Layer</strong>.</p>
 
 <p>Controller shouldn&rsquo;t speak to the Model directly. And Model shouldn&rsquo;t
 speak to other Models. And all the dependencies should go only one way,
-but not the other.</p>
+but not the other.&#8221;</p>
 
-<h5>References:</h5>
+<p>Well, this totally ruins the Rails Way, and not really applicable
+directly. But that&rsquo;s a good start and occasion to think about
+architecture, code organizing etc. Here&rsquo;s some materials on the topic I
+found useful and pleasant to read:</p>
 
 <ul>
-<li><a href="http://www.confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years">Bob Martin &ndash; &ldquo;Architecture. The Lost Years.&rdquo;</a></li>
 <li><a href="https://practicingruby.com/articles/responsibility-centric-vs-data-centric-design">Practicing Ruby Issue #4.11  &ndash; &ldquo;Responsibility-centric vs.  data-centric design&rdquo;</a></li>
 <li><a href="http://eng.joingrouper.com/blog/2014/03/03/rails-the-missing-parts-interactors">Grouper &ndash; &ldquo;Rails. The Missing Parts. Interactors.&rdquo;</a></li>
 <li><a href="https://news.ycombinator.com/item?id=7335211">↑ &amp; epic discussion on Hacker News</a></li>
@@ -230,6 +228,10 @@ but not the other.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/04/30/tdd-resources/">TDD Resources</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/04/12/grasp-for-ruby-on-rails/">GRASP for Ruby(on Rails)</a>
       </li>
     
@@ -243,10 +245,6 @@ but not the other.</p>
     
       <li class="post">
         <a href="/blog/2014/03/25/method-object/">Refactoring Patterns: Method Object</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/24/how-do-i-pomodoro/">How Do I Pomodoro</a>
       </li>
     
   </ul>
