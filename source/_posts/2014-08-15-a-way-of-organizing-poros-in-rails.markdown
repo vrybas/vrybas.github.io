@@ -31,7 +31,7 @@ If class/module is not Model, View or Controller, it suppose to go to
 `lib/`, isn't it? Well, this approach got some disadvantages.
 
 When you start to extract your business logic to POROs, on a big project
-you're going to have a few dozen of them, maybe hundred(s). So pretty
+you're going to have a few dozen of them, maybe hundred(s). Pretty
 soon you open your `lib/` - and it scares you. Even worse when it gets
 explored by a new team member.
 
