@@ -9,18 +9,21 @@ categories:
 
 ## Service layer
 
-So, now we came to a point where our app no longer fit to MVC and we
-want to extract a service layer. By "Service Layer" I mean a collection
-of Plain Old Ruby Objects, which hold pure business logic. What kind of
-POROs it might be? Here's good [examples][1] by Bryan Helmkamp.
+So, now we came to a point where our app no longer fit to vanilla MVC
+and we want to extract a service layer. By "Service Layer" I mean a
+collection of Plain Old Ruby Objects, which hold pure business logic.
+What kind of POROs it might be? Here's good [examples][1] by Bryan
+Helmkamp.
 
-But, anyway, the question is - where do we put them?
+But, anyway, the question is - where do we put them in our Rails app
+files structure?
 
 We got several options here:
 
 1. Dump everything to `lib/` dir
-2. Call them non-ActiveRecord Models
-3. Use Cases and Entities (DDD approach)
+2. Call them non-ActiveRecord Models and put them in `app/models/`
+3. Use Cases and Entities (DDD approach). So `app/use_cases/` &
+`app/entities/`
 4. ???
 
 Let's go through these options one after another.
@@ -36,23 +39,24 @@ soon you open your `lib/` - and it scares you. Even worse when it gets
 explored by a new team member.
 
 Another thing - it's pretty easy to loose track on what is used where
-and for what reason. Especially in dynamic language like Ruby.
+and for what reason. Especially in dynamic metaprogramming-friendly
+language like Ruby.
 
 So, slowly but surely, `lib/` becomes "a big ball of mud".
 
 ## 2. non-ActiveRecord Models
 
-It could be that everything what is not Controller, not AR Model itself
-and not a Policy/Form/Service Object, and returns you some data
-structure - is another Model, which doesn't inherit from
-`ActiveRecord::Base`.
+We can say that PORO, which returns data structure(or for whatever other
+reason), is non-ActiveRecord model and put it in `models/`
 
 Well, that's better. Sort of. Part is in `lib/`, part is in `models/`. A
 slightly less mess, but in two places now.
 
 Besides, there's a problem each time to decide, whether this PORO is a
 "model" or not. And it's even harder for others to guess, where to find
-that class, when they explore your code.
+that class(in `models/` or still in `lib/`), when they explore your
+code.
+
 
 ## 3. Use Cases & Entities
 
@@ -69,8 +73,8 @@ but sometimes I want to extract a few classes from it.
 
 Decisions, decisions. It's all confusing. Besides, everyone in the team
 need to share the exact same architectural concepts (which is solved by
-Rails Way at first place). Pretty quick the codebase can become more
-mess and hard to follow through, than it was before.
+"The Rails Way" at first place). Pretty quick the codebase can become
+more mess and hard to follow through, than it was before.
 
 ## 4. Namespaces FTW!
 
@@ -96,9 +100,9 @@ should be paginated, sortable, and `current_user`-specific. Now, I think
 it's a good idea to create a `UserList` class, which will handle all
 this logic.
 
-But where do I put this class? Is this a Service / Model / UseCase /
-Entity / QueryObject? When using namespaces, the answer is - I don't
-really care.
+But where do I put this class? Is this a Service / Model / Use Case /
+Entity / Query Object / Policy Object? When using namespaces, the answer
+is - I don't really care.
 
 All I need to do is to create one more folder in `controllers/` with the
 same name as controller.
