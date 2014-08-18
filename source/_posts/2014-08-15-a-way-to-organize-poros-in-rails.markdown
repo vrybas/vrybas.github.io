@@ -206,8 +206,10 @@ end
 ```
 
 As a result - your code is more logically organized. It would be
-pretty easy to guess the locations of classes while exploring code. And
-you'll never afraid to extract one more single responsibility class,
+pretty easy to guess the locations of classes while exploring code -
+your app will still look like a Rails app.
+
+And you'll never afraid to extract one more single responsibility class,
 knowing that it is going to be small and "local" and won't conflict with
 other's classes.
 
