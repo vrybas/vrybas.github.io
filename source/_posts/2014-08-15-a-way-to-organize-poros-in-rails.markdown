@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A way of organizing POROs in Rails"
+title: "A way to Organize POROs in Rails"
 date: 2014-08-15 20:26:54 +0700
 comments: true
 categories:
