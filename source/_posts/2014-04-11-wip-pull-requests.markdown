@@ -53,6 +53,9 @@ still very much valuable.
 - [↑ & discussion on Hacker News][5]
 - [@torvalds - "I don't do github pull requests..."][2]
 - [@madsheep - Ups and Downs of Pull Request Flow][3]
+- [NEOVim pull-requests][6]
+
+![neovim-prs][7]
 
 
 
@@ -61,3 +64,5 @@ still very much valuable.
 [3]: https://netguru.co/blog/posts/ups-and-downs-of-pull-request-flow-part-1
 [4]: https://news.ycombinator.com/item?id=2183287
 [5]: https://news.ycombinator.com/item?id=2182873
+[6]: https://github.com/neovim/neovim/pulls
+[7]: http://cl.ly/image/1Q2r1J0L2b35/Screen%20Shot%202014-08-25%20at%202.40.17%20PM.png
