@@ -119,8 +119,10 @@ and put my `UserList` class there
 ```
 # app/controllers/dashboard_controller/user_list.rb
 
-class DashboardController::UserList
-  # codes codes codes
+class DashboardController
+  class UserList
+    # codes codes codes
+  end
 end
 ```
 
@@ -142,14 +144,10 @@ Note that we don't even need to specify the namespace.
 
 ### Example with Models
 
-Pretty much the same thing is with models. But with Models you'd
-probably extract more Modules/Concerns than Classes.
+Pretty much the same thing with models.
 
 ```
 class User < ActiveRecord::Base
-  include Lockable
-  include Settings
-
   def can_follow?(user)
     FollowingPolicy.new(self, user).can_follow?
   end
@@ -162,46 +160,25 @@ with files structure
 models
 ├── user
 │   └── following_policy.rb
-│   └── lockable.rb
-│   └── settings.rb
 └── user.rb
 ```
 
 and possible content
 
 ```
-# app/models/user/lockable.rb
-module User::Lockable
-  def lock_access!
-    update(locked_at: Time.now)
-    UserMailer.account_locked_email(self).deliver
-  end
-
-  # ...
-end
-
-# app/models/user/settings.rb
-module User::Settings
-  extend ActiveSupport::Concern
-
-  included do
-    store_accessor :settings
-  end
-
-  # ...
-end
-
 # app/models/user/following_policy.rb
-class User::FollowingPolicy
-  attr_reader :current_user, :other_user, :account_verification
+class User
+  class FollowingPolicy
+    attr_reader :current_user, :other_user, :account_verification
 
-  def initialize(current_user, other_user)
-    @current_user = current_user
-    @other_user = other_user
-    @account_verification = current_user.account_verification
+    def initialize(current_user, other_user)
+      @current_user = current_user
+      @other_user = other_user
+      @account_verification = current_user.account_verification
+    end
+
+    # ...
   end
-
-  # ...
 end
 ```
 
