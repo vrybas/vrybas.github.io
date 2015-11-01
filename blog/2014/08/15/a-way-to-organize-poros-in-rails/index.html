@@ -228,10 +228,14 @@ same name as controller.</p>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># app/controllers/dashboard_controller/user_list.rb</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">DashboardController</span><span class="o">::</span><span class="no">UserList</span>
-</span><span class='line'>  <span class="c1"># codes codes codes</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">DashboardController</span>
+</span><span class='line'>  <span class="k">class</span> <span class="nc">UserList</span>
+</span><span class='line'>    <span class="c1"># codes codes codes</span>
+</span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -263,21 +267,14 @@ same name as controller.</p>
 
 <h3>Example with Models</h3>
 
-<p>Pretty much the same thing is with models. But with Models you&rsquo;d
-probably extract more Modules/Concerns than Classes.</p>
+<p>Pretty much the same thing with models.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
-</span><span class='line'>  <span class="kp">include</span> <span class="no">Lockable</span>
-</span><span class='line'>  <span class="kp">include</span> <span class="no">Settings</span>
-</span><span class='line'>
 </span><span class='line'>  <span class="k">def</span> <span class="nf">can_follow?</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
 </span><span class='line'>    <span class="no">FollowingPolicy</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span><span class="o">.</span><span class="n">can_follow?</span>
 </span><span class='line'>  <span class="k">end</span>
@@ -291,13 +288,9 @@ probably extract more Modules/Concerns than Classes.</p>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">models</span>
 </span><span class='line'><span class="err">├──</span> <span class="n">user</span>
 </span><span class='line'><span class="err">│</span>   <span class="err">└──</span> <span class="n">following_policy</span><span class="o">.</span><span class="n">rb</span>
-</span><span class='line'><span class="err">│</span>   <span class="err">└──</span> <span class="n">lockable</span><span class="o">.</span><span class="n">rb</span>
-</span><span class='line'><span class="err">│</span>   <span class="err">└──</span> <span class="n">settings</span><span class="o">.</span><span class="n">rb</span>
 </span><span class='line'><span class="err">└──</span> <span class="n">user</span><span class="o">.</span><span class="n">rb</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -318,57 +311,19 @@ probably extract more Modules/Concerns than Classes.</p>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># app/models/user/lockable.rb</span>
-</span><span class='line'><span class="k">module</span> <span class="nn">User::Lockable</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">lock_access!</span>
-</span><span class='line'>    <span class="n">update</span><span class="p">(</span><span class="n">locked_at</span><span class="p">:</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
-</span><span class='line'>    <span class="no">UserMailer</span><span class="o">.</span><span class="n">account_locked_email</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span><span class="o">.</span><span class="n">deliver</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># app/models/user/following_policy.rb</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">User</span>
+</span><span class='line'>  <span class="k">class</span> <span class="nc">FollowingPolicy</span>
+</span><span class='line'>    <span class="kp">attr_reader</span> <span class="ss">:current_user</span><span class="p">,</span> <span class="ss">:other_user</span><span class="p">,</span> <span class="ss">:account_verification</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">current_user</span><span class="p">,</span> <span class="n">other_user</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@current_user</span> <span class="o">=</span> <span class="n">current_user</span>
+</span><span class='line'>      <span class="vi">@other_user</span> <span class="o">=</span> <span class="n">other_user</span>
+</span><span class='line'>      <span class="vi">@account_verification</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">account_verification</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1"># ...</span>
 </span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># ...</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># app/models/user/settings.rb</span>
-</span><span class='line'><span class="k">module</span> <span class="nn">User::Settings</span>
-</span><span class='line'>  <span class="kp">extend</span> <span class="ss">ActiveSupport</span><span class="p">:</span><span class="ss">:Concern</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">included</span> <span class="k">do</span>
-</span><span class='line'>    <span class="n">store_accessor</span> <span class="ss">:settings</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># ...</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># app/models/user/following_policy.rb</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">User</span><span class="o">::</span><span class="no">FollowingPolicy</span>
-</span><span class='line'>  <span class="kp">attr_reader</span> <span class="ss">:current_user</span><span class="p">,</span> <span class="ss">:other_user</span><span class="p">,</span> <span class="ss">:account_verification</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">current_user</span><span class="p">,</span> <span class="n">other_user</span><span class="p">)</span>
-</span><span class='line'>    <span class="vi">@current_user</span> <span class="o">=</span> <span class="n">current_user</span>
-</span><span class='line'>    <span class="vi">@other_user</span> <span class="o">=</span> <span class="n">other_user</span>
-</span><span class='line'>    <span class="vi">@account_verification</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">account_verification</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># ...</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -528,7 +483,7 @@ or controller.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Vladimir Rybas -
+  Copyright &copy; 2015 - Vladimir Rybas -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
