@@ -1,0 +1,536 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A Way to Organize POROs in Rails - @vrybas.(blogs).here</title>
+  <meta name="author" content="Vladimir Rybas">
+
+  
+  <meta name="description" content="Service layer So, now we came to a point where our app no longer fit to vanilla MVC
+and we want to extract a service layer. By &ldquo;Service Layer& &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://vrybas.github.io/blog/2014/08/15/a-way-to-organize-poros-in-rails">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="@vrybas.(blogs).here" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10820800-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">@vrybas.(blogs).here</a></h1>
+  
+    <h2>Ruby / Rails / Agile / Productivity / Vim / ЗОЖ</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:vrybas.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/about">About Me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">A Way to Organize POROs in Rails</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-15T17:26:54+04:00" pubdate data-updated="true">Aug 15<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Service layer</h2>
+
+<p>So, now we came to a point where our app no longer fit to vanilla MVC
+and we want to extract a service layer. By &ldquo;Service Layer&rdquo; I mean a
+collection of Plain Old Ruby Objects, which hold pure business logic.
+What kind of POROs it might be? Here&rsquo;s good <a href="http://blog.codeclimate.com/blog/2012/10/17/7-ways-to-decompose-fat-activerecord-models/">examples</a> by Bryan
+Helmkamp.</p>
+
+<p>But, anyway, the question is &ndash; where do we put them in our Rails app
+files structure?</p>
+
+<p>We got several options here:</p>
+
+<ol>
+<li>Dump everything to <code>lib/</code> dir</li>
+<li>Call them non-ActiveRecord Models and put them in <code>app/models/</code></li>
+<li>Use Cases and Entities (DDD approach). So <code>app/use_cases/</code> &amp;
+<code>app/entities/</code></li>
+<li>???</li>
+</ol>
+
+
+<p>Let&rsquo;s go through these options one after another.</p>
+
+<h3>1. <code>lib/</code></h3>
+
+<p>If class/module is not Model, View or Controller, it suppose to go to
+<code>lib/</code>, isn&rsquo;t it? Well, this approach got some disadvantages.</p>
+
+<p>When you start to extract your business logic to POROs, on a big project
+you&rsquo;re going to have a few dozen of them, maybe hundred(s). Pretty
+soon you open your <code>lib/</code> &ndash; and it scares you. Even worse when it gets
+explored by a new team member.</p>
+
+<p>Another thing &ndash; it&rsquo;s pretty easy to loose track on what is used where
+and for what reason. Especially in dynamic metaprogramming-friendly
+language like Ruby.</p>
+
+<p>So, slowly but surely, <code>lib/</code> becomes &ldquo;a big ball of mud&rdquo;.</p>
+
+<h2>2. non-ActiveRecord Models</h2>
+
+<p>We can say that PORO, which returns data structure(or for whatever other
+reason), is non-ActiveRecord model and put it in <code>models/</code></p>
+
+<p>Well, that&rsquo;s better. Sort of. Part is in <code>lib/</code>, part is in <code>models/</code>. A
+slightly less mess, but in two places now.</p>
+
+<p>Besides, there&rsquo;s a problem each time to decide, whether this PORO is a
+&ldquo;model&rdquo; or not. And it&rsquo;s even harder for others to guess, where to find
+that class(in <code>models/</code> or still in <code>lib/</code>), when they explore your
+code.</p>
+
+<h2>3. Use Cases &amp; Entities</h2>
+
+<p>The concept of Use Cases &amp; Entities comes from DDD and from Bob Martin&rsquo;s
+<a href="http://vrybas.github.io/blog/2014/04/04/rails-and-pipes/">talk</a> &ldquo;Architecture: The Lost Years&rdquo;.  So, the core of your system
+suppose be in UseCases(verbs e.g. <em>CreateUser</em>) and Entities(nouns e.g.
+<em>User</em>).</p>
+
+<p>But the problem with this &ndash; it takes you far away from &ldquo;The Rails Way&rdquo;.
+In one case I want to use my ActiveRecord model as Entitly, but in the
+other case it should be a separate class with it&rsquo;s corresponding
+Repository class. Sometimes, my Controller is pretty much the UseCase,
+but sometimes I want to extract a few classes from it.</p>
+
+<p>Decisions, decisions. It&rsquo;s all confusing. Besides, everyone in the team
+need to share the exact same architectural concepts (which is solved by
+&ldquo;The Rails Way&rdquo; at first place). Pretty quick the codebase can become
+more mess and hard to follow through, than it was before.</p>
+
+<h2>4. Namespaces FTW!</h2>
+
+<p>So, there&rsquo;s another approach, which is used by every single gem and
+almost any other Ruby program &ndash; the namespaced classes and modules.</p>
+
+<h6>Disclaimer: As usual, code examples are highly synthetic and short to keep them easy to follow. Your &ldquo;results may vary&rdquo;.</h6>
+
+<h3>Example with Controllers</h3>
+
+<p>Let&rsquo;s say you got a dashboard in your app.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">DashboardController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">index</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And you want to show a list of users on this dashboard. But user list
+should be paginated, sortable, and <code>current_user</code>-specific. Now, I think
+it&rsquo;s a good idea to create a <code>UserList</code> class, which will handle all
+this logic.</p>
+
+<p>But where do I put this class? Is this a Service / Model / Use Case /
+Entity / Query Object / Policy Object? When using namespaces, the answer
+is &ndash; I don&rsquo;t really care.</p>
+
+<p>All I need to do is to create one more folder in <code>controllers/</code> with the
+same name as controller.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">controllers</span>
+</span><span class='line'><span class="err">├──</span> <span class="n">dashboard_controller</span>
+</span><span class='line'><span class="err">│</span>   <span class="err">└──</span> <span class="n">user_list</span><span class="o">.</span><span class="n">rb</span>
+</span><span class='line'><span class="err">└──</span> <span class="n">dashboard_controller</span><span class="o">.</span><span class="n">rb</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and put my <code>UserList</code> class there</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># app/controllers/dashboard_controller/user_list.rb</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">DashboardController</span>
+</span><span class='line'>  <span class="k">class</span> <span class="nc">UserList</span>
+</span><span class='line'>    <span class="c1"># codes codes codes</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and then it can be used in <code>DashboardController</code> like this</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">DashboardController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">index</span>
+</span><span class='line'>    <span class="vi">@users</span> <span class="o">=</span> <span class="no">UserList</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">current_user</span><span class="p">,</span>
+</span><span class='line'>                          <span class="ss">page</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:page</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>                          <span class="n">per_page</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:per_page</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>                          <span class="n">sort_by</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:sort_by</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>                          <span class="n">order_asc</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:order_asc</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">all</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note that we don&rsquo;t even need to specify the namespace.</p>
+
+<h3>Example with Models</h3>
+
+<p>Pretty much the same thing with models.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">can_follow?</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</span><span class='line'>    <span class="no">FollowingPolicy</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span><span class="o">.</span><span class="n">can_follow?</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>with files structure</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">models</span>
+</span><span class='line'><span class="err">├──</span> <span class="n">user</span>
+</span><span class='line'><span class="err">│</span>   <span class="err">└──</span> <span class="n">following_policy</span><span class="o">.</span><span class="n">rb</span>
+</span><span class='line'><span class="err">└──</span> <span class="n">user</span><span class="o">.</span><span class="n">rb</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and possible content</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># app/models/user/following_policy.rb</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">User</span>
+</span><span class='line'>  <span class="k">class</span> <span class="nc">FollowingPolicy</span>
+</span><span class='line'>    <span class="kp">attr_reader</span> <span class="ss">:current_user</span><span class="p">,</span> <span class="ss">:other_user</span><span class="p">,</span> <span class="ss">:account_verification</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">current_user</span><span class="p">,</span> <span class="n">other_user</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@current_user</span> <span class="o">=</span> <span class="n">current_user</span>
+</span><span class='line'>      <span class="vi">@other_user</span> <span class="o">=</span> <span class="n">other_user</span>
+</span><span class='line'>      <span class="vi">@account_verification</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">account_verification</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1"># ...</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As a result &ndash; your code is more logically organized. It would be
+pretty easy to guess the locations of classes while exploring code &ndash;
+your app will still look like a Rails app.</p>
+
+<p>And you&rsquo;ll never afraid to extract one more single responsibility class,
+knowing that it is going to be small and &ldquo;local&rdquo; and won&rsquo;t conflict with
+other&rsquo;s classes.</p>
+
+<p>What goes to <code>lib/</code> then? API wrappers for one example. The
+application-independent code, or code which doesn&rsquo;t belong to any model
+or controller.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Vladimir Rybas</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-15T17:26:54+04:00" pubdate data-updated="true">Aug 15<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://vrybas.github.io/blog/2014/08/15/a-way-to-organize-poros-in-rails/" data-via="vrybas" data-counturl="http://vrybas.github.io/blog/2014/08/15/a-way-to-organize-poros-in-rails/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/04/30/tdd-resources/" title="Previous Post: TDD resources">&laquo; TDD resources</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>My name is Vladimir Rybas.<br/>
+  I'm a Ruby and Golang developer, living in Moscow</p>
+  <div class="gravatar">
+    <img height="130" width="130" src="https://avatars2.githubusercontent.com/u/30538?s=480" alt="Gravatar of Vladimir Rybas" title="Gravatar of Vladimir Rybas" />
+  </div>
+  <div>
+    <a href="https://www.linkedin.com/in/vrybas" target="_blank"><img style="border: 0px; box-shadow: none; width: 130px; margin-top: 10px;" src="/images/follow-linkedin-btn.jpg" width="160" height="33" border="0" alt="View Vladimir Rybas's profile on LinkedIn"></a>
+  </div>
+  <div style="width: 150px; margin-top: 10px;">
+    <a href="https://github.com/vrybas" target="_blank" style="text-decoration: none;">github</a> | <a href="https://twitter.com/vrybas" target="_blank" style="text-decoration: none;">twitter</a> | <a href="mailto:contact@vladimir-rybas.com" target="_blank" style="text-decoration: none;">email</a>
+  </div>
+
+
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/15/a-way-to-organize-poros-in-rails/">A Way to Organize POROs in Rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/30/tdd-resources/">TDD Resources</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/12/grasp-for-ruby-on-rails/">GRASP for Ruby(on Rails)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/11/wip-pull-requests/">Work-In-Progress Pull Requests</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/04/rails-and-pipes/">Rails and Pipes (DDD Notes)</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/vrybas">@vrybas</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'vrybas',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2019 - Vladimir Rybas -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'vrybas-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://vrybas.github.io/blog/2014/08/15/a-way-to-organize-poros-in-rails/';
+        var disqus_url = 'http://vrybas.github.io/blog/2014/08/15/a-way-to-organize-poros-in-rails/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
