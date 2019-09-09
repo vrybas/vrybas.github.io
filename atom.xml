@@ -4,7 +4,7 @@
   <title><![CDATA[@vrybas.(blogs).here]]></title>
   <link href="http://vrybas.github.io/atom.xml" rel="self"/>
   <link href="http://vrybas.github.io/"/>
-  <updated>2016-03-02T16:24:58+07:00</updated>
+  <updated>2019-09-09T20:29:31+03:00</updated>
   <id>http://vrybas.github.io/</id>
   <author>
     <name><![CDATA[Vladimir Rybas]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[A Way to Organize POROs in Rails]]></title>
     <link href="http://vrybas.github.io/blog/2014/08/15/a-way-to-organize-poros-in-rails/"/>
-    <updated>2014-08-15T20:26:54+07:00</updated>
+    <updated>2014-08-15T17:26:54+04:00</updated>
     <id>http://vrybas.github.io/blog/2014/08/15/a-way-to-organize-poros-in-rails</id>
     <content type="html"><![CDATA[<h2>Service layer</h2>
 
@@ -258,7 +258,7 @@ or controller.</p>
   <entry>
     <title type="html"><![CDATA[TDD Resources]]></title>
     <link href="http://vrybas.github.io/blog/2014/04/30/tdd-resources/"/>
-    <updated>2014-04-30T23:34:04+07:00</updated>
+    <updated>2014-04-30T20:34:04+04:00</updated>
     <id>http://vrybas.github.io/blog/2014/04/30/tdd-resources</id>
     <content type="html"><![CDATA[<h2>Design:</h2>
 
@@ -355,7 +355,7 @@ isolated.</li>
   <entry>
     <title type="html"><![CDATA[GRASP for Ruby(on Rails)]]></title>
     <link href="http://vrybas.github.io/blog/2014/04/12/grasp-for-ruby-on-rails/"/>
-    <updated>2014-04-12T14:51:59+07:00</updated>
+    <updated>2014-04-12T11:51:59+04:00</updated>
     <id>http://vrybas.github.io/blog/2014/04/12/grasp-for-ruby-on-rails</id>
     <content type="html"><![CDATA[<h2>What is GRASP?</h2>
 
@@ -525,7 +525,7 @@ class is called &ldquo;Service&rdquo; in Domain-driven design.</em></p>
   <entry>
     <title type="html"><![CDATA[Work-In-Progress Pull Requests]]></title>
     <link href="http://vrybas.github.io/blog/2014/04/11/wip-pull-requests/"/>
-    <updated>2014-04-11T08:19:56+07:00</updated>
+    <updated>2014-04-11T05:19:56+04:00</updated>
     <id>http://vrybas.github.io/blog/2014/04/11/wip-pull-requests</id>
     <content type="html"><![CDATA[<p>There&rsquo;ve been a lot of criticism(<a href="http://oldblog.antirez.com/post/pull-requests-are-not-conversations.html">1</a>,<a href="https://github.com/torvalds/linux/pull/17#issuecomment-5654674">2</a>,<a href="https://netguru.co/blog/posts/ups-and-downs-of-pull-request-flow-part-1">3</a>) on Github Pull Requests
 lately.</p>
@@ -586,7 +586,7 @@ still very much valuable.</p>
   <entry>
     <title type="html"><![CDATA[Rails and Pipes (DDD Notes)]]></title>
     <link href="http://vrybas.github.io/blog/2014/04/04/rails-and-pipes/"/>
-    <updated>2014-04-04T07:06:42+07:00</updated>
+    <updated>2014-04-04T04:06:42+04:00</updated>
     <id>http://vrybas.github.io/blog/2014/04/04/rails-and-pipes</id>
     <content type="html"><![CDATA[<p>Very interesting talk on Rails apps architecture by Uncle Bob.</p>
 
@@ -634,7 +634,7 @@ found useful and pleasant to read:</p>
   <entry>
     <title type="html"><![CDATA[Refactoring Patterns: Method Object]]></title>
     <link href="http://vrybas.github.io/blog/2014/03/25/method-object/"/>
-    <updated>2014-03-25T07:06:42+07:00</updated>
+    <updated>2014-03-25T04:06:42+04:00</updated>
     <id>http://vrybas.github.io/blog/2014/03/25/method-object</id>
     <content type="html"><![CDATA[<p>Here&rsquo;s how you can deal with huge and messy method.</p>
 
@@ -838,7 +838,7 @@ beast have, so you can deal with it.</p>
   <entry>
     <title type="html"><![CDATA[How Do I Pomodoro]]></title>
     <link href="http://vrybas.github.io/blog/2013/07/24/how-do-i-pomodoro/"/>
-    <updated>2013-07-24T07:38:21+07:00</updated>
+    <updated>2013-07-24T04:38:21+04:00</updated>
     <id>http://vrybas.github.io/blog/2013/07/24/how-do-i-pomodoro</id>
     <content type="html"><![CDATA[<p>I&rsquo;m a big fan of <strong>Pomodoro</strong> time management technique, created by
 Francesco Cirillo in the 80&rsquo;s. In this post I&rsquo;ll describe what it is,
